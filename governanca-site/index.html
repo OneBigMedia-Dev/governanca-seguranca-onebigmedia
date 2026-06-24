@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Governança de Segurança - OneBigMedia</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <div class="brand">
+          <div>
+            <p class="brand-eyebrow">OneBigMedia</p>
+            <h1>Base de Governança</h1>
+          </div>
+        </div>
+
+        <label class="search">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="Risco, GitHub, IA..." autocomplete="off" />
+        </label>
+
+        <nav id="nav" class="nav-list"></nav>
+      </aside>
+
+      <main class="content-layout">
+        <article class="content">
+          <header class="topbar">
+            <div>
+              <p id="pageKicker" class="kicker"></p>
+              <h2 id="pageTitle"></h2>
+            </div>
+            <div class="topbar-actions">
+              <a class="source-link" href="../GOVERNANCA_SEGURANCA_ONEBIGMEDIA.md">Documento fonte</a>
+              <button id="copyPageLink" type="button">Copiar link</button>
+            </div>
+          </header>
+
+          <section id="overview" class="overview"></section>
+          <section id="pageSections" class="page-sections"></section>
+        </article>
+
+        <aside class="page-toc" aria-label="Índice desta página">
+          <strong>Nesta página</strong>
+          <nav id="pageToc"></nav>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./site-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
