@@ -472,6 +472,7 @@ window.GOVERNANCA_PAGES = [
           "Mudanças em produção seguem o mesmo fluxo de qualquer mudança humana.",
           "Conectores, MCPs, extensões e plugins devem ser aprovados quando acessarem dados internos.",
           "Ferramentas de IA contratadas ou disponibilizadas pela empresa são de uso corporativo e podem ser monitoradas.",
+          "O uso de ferramentas de IA pagas, custeadas, disponibilizadas ou administradas pela OneBigMedia exige contrato, termo ou aditivo assinado pelo usuario quando aplicavel.",
           "Não é permitido usar ferramentas, contas, créditos, integrações ou agentes de IA da empresa em projetos pessoais.",
           "Uso indevido para projetos pessoais pode gerar advertência, revogação de licença e possível suspensão de acesso."
         ]
@@ -484,6 +485,7 @@ window.GOVERNANCA_PAGES = [
         matrix: {
           headers: ["Tema", "Regra", "Consequência/controle"],
           rows: [
+            ["Contrato assinado", "Antes de usar ferramentas de IA pagas ou disponibilizadas pela OneBigMedia, o usuario deve aceitar ou assinar o contrato, termo de responsabilidade, politica ou aditivo aplicavel.", "Sem aceite/assinatura registrada, o acesso pode ser negado, suspenso ou revogado."],
             ["Uso corporativo", "Ferramentas de IA da empresa devem ser usadas apenas em projetos, demandas e estudos autorizados pela OneBigMedia.", "Projetos pessoais, freelas, estudos externos e uso para terceiros não são permitidos."],
             ["Monitoramento", "Uso, consumo, integrações, custos, logs administrativos e eventos de segurança podem ser acompanhados.", "O monitoramento apoia auditoria, controle de custo, investigação de incidente e revisão de acessos."],
             ["Projetos pessoais", "Não usar conta, licença, workspace, token, integração, agente ou crédito corporativo em projeto pessoal.", "Descumprimento pode gerar advertência e suspensão/revogação de acesso."],
@@ -2363,6 +2365,7 @@ Se um segredo for exposto:
         icon: "P",
         flow: [
           { title: "Criar base", text: "Adicionar README.md, SECURITY.md, OBMG_SecSpec.md, CODEOWNERS, .gitignore e .env.example.", details: ["Sem essa base, o projeto ainda nao esta pronto para acesso sensivel.", "Use dados ficticios em dev sempre que possivel."] },
+          { title: "Validar contrato de IA", text: "Antes de liberar IA paga ou administrada pela OneBigMedia, confirmar contrato, termo ou aditivo assinado pelo usuario.", type: "approval", details: ["Sem aceite/assinatura registrada, o acesso a IA corporativa pode ser negado, suspenso ou revogado.", "O uso deve ficar limitado a projetos, demandas e objetivos corporativos da OneBigMedia."] },
           { title: "Classificar risco", text: "Definir baixo, medio ou alto conforme dados, producao, credenciais, GCP, CMS, banco, IA e custo.", type: "risk", details: ["Na duvida, tratar temporariamente como maior risco.", "Producao, banco real, OAuth, CMS e admin elevam o risco."] },
           { title: "Aplicar skill", text: "Chamar $onebigmedia-security para revisar estrutura, documentos, secrets, CI/CD, GCP, banco, IA e release gate.", type: "decision", details: ["A skill procura SECURITY.md e OBMG_SecSpec.md.", "Ela cruza o projeto com as regras da OneBigMedia."] },
           { title: "Implementar com PR", text: "Desenvolver em branch, abrir Pull Request, executar testes e registrar evidencias no Jira.", details: ["Mudancas sensiveis exigem CODEOWNERS.", "Codigo gerado por IA tambem passa por revisao humana."] },
