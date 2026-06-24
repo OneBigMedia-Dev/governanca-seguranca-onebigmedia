@@ -82,7 +82,7 @@ window.GOVERNANCA_PAGES = [
           "Assinaturas e acessos podem ser revogados por risco, falta de uso, custo, ausência de dono ou falta de evidência.",
           "Continuidade exige comprovação de utilidade, não apenas preferência pessoal.",
           "Quando houver dados, integrações, relatórios, GCP, GitHub, CMS ou banco, o time de dados deve revisar.",
-          "Quando houver custo recorrente, financeiro/gestão deve aprovar.",
+          "Quando houver custo recorrente, Daniele Kuhlmann deve aprovar orçamento, contratação ou continuidade.",
           "Quando houver produção, banco real, segredos ou permissões administrativas, o risco deve ser tratado como alto até revisão."
         ]
       },
@@ -227,9 +227,9 @@ window.GOVERNANCA_PAGES = [
         cards: [
           { title: "Solicitante", text: "Abre demanda no Jira com objetivo, contexto, dados envolvidos e urgência." },
           { title: "Dono técnico", text: "Responde por arquitetura, operação, documentação e sustentação." },
-          { title: "Paulo", text: "Valida projetos, aprova avanço no pipeline e mantém o processo." },
-          { title: "Fred Valente", text: "Libera, revisa e controla acessos ao Claude Code." },
-          { title: "Financeiro/Gestão", text: "Aprova custos de licenças, APIs, ferramentas e recursos recorrentes." },
+          { title: "Paulo Soares de Moura", text: "Revisa, tria, valida e acompanha projetos, incluindo aderencia aos padroes de governanca antes de avancos relevantes ou producao." },
+          { title: "Daniele Kuhlmann", text: "Aprova orcamento, valida custo e libera contratacao, renovacao ou continuidade de novas ferramentas, licencas, SaaS, APIs e recursos pagos." },
+          { title: "Fred Valente", text: "Libera, revisa, suspende e revoga acessos a ferramentas, sistemas, ambientes, contas corporativas e ferramentas de IA conforme escopo e risco." },
           { title: "Revisor técnico", text: "Revisa PRs, riscos técnicos, segurança e testes." }
         ]
       },
@@ -242,8 +242,9 @@ window.GOVERNANCA_PAGES = [
           { title: "Solicitante", steps: ["Descreve necessidade", "Abre Jira", "Informa dados e urgência"] },
           { title: "Dono técnico", steps: ["Classifica risco", "Desenha solução", "Mantém operação"] },
           { title: "Revisor", steps: ["Revisa PR", "Avalia risco técnico", "Confere evidências"] },
-          { title: "Aprovadores", steps: ["Aprovam custo", "Aprovam produção", "Registram exceções"] },
-          { title: "Admins", steps: ["Aplicam permissões", "Configuram secrets", "Revisam acessos"] }
+          { title: "Paulo Soares de Moura", steps: ["Revisa projetos", "Valida avancos", "Confere governanca"] },
+          { title: "Daniele Kuhlmann", steps: ["Aprova orcamento", "Libera contratacao", "Valida renovacoes"] },
+          { title: "Fred Valente", steps: ["Libera acessos", "Revoga acessos", "Revisa permissoes"] }
         ]
       }
     ]
@@ -302,7 +303,7 @@ window.GOVERNANCA_PAGES = [
           rows: [
             ["Sem dados sensíveis, sem credenciais e sem produção", "Baixo", "Registrar e seguir fluxo simples."],
             ["API externa, token limitado, dado operacional ou custo recorrente", "Médio", "Dono técnico valida e segurança revisa quando aplicável."],
-            ["Produção, banco real, dados financeiros, CMS, contas Google ou admin", "Alto", "Exige validação técnica, aprovação de Paulo e aprovações adicionais."],
+            ["Produção, banco real, dados financeiros, CMS, contas Google ou admin", "Alto", "Exige validação técnica, revisão de Paulo Soares de Moura e aprovações adicionais."],
             ["Dúvida sobre dado, permissão ou impacto", "Tratar como maior risco", "Pedir informação antes de avançar."]
           ]
         }
@@ -315,7 +316,7 @@ window.GOVERNANCA_PAGES = [
     group: "Operação",
     title: "Aquisição de apps, SaaS e licenças",
     kicker: "Compras com segurança",
-    owner: "Solicitante, dono técnico e financeiro",
+    owner: "Solicitante, dono técnico e Daniele Kuhlmann",
     audience: "Todos que solicitam ferramentas",
     review: "Mensal para licenças ativas",
     summary:
@@ -342,7 +343,7 @@ window.GOVERNANCA_PAGES = [
           { title: "Aprovação do gestor", text: "O gestor da área precisa validar necessidade, prioridade e aderência ao trabalho do time.", type: "approval", details: ["Sem aprovação do gestor, a solicitação não avança.", "O gestor confirma quem usará a ferramenta e qual resultado espera."] },
           { title: "Revisão do time de dados", text: "O time de dados revisa impacto em dados, integrações, relatórios, pipelines, CMS, APIs e governança.", type: "decision", details: ["Se a ferramenta acessa dados internos, APIs, Drive, GCP, GitHub, banco ou CMS, a revisão é obrigatória.", "O time de dados pode aprovar, pedir ajustes, restringir escopo ou recusar."] },
           { title: "Classificar risco", text: "Baixo, médio ou alto conforme dados, integrações, permissões, produção e custo.", type: "risk", details: ["Acesso a GitHub, GCP, banco, CMS ou conta Google tende a alto risco.", "Permissões amplas precisam de justificativa explícita."] },
-          { title: "Avaliar segurança e custo", text: "Verificar MFA/SSO, auditoria, revogação, dados armazenados, permissões e orçamento.", details: ["Financeiro/Gestão aprova custo recorrente quando aplicável.", "Preferir ferramentas com gestão centralizada e logs."] },
+          { title: "Avaliar segurança e custo", text: "Verificar MFA/SSO, auditoria, revogação, dados armazenados, permissões e orçamento.", details: ["Daniele Kuhlmann aprova orçamento, contratação, renovação e continuidade de ferramentas pagas quando aplicável.", "Preferir ferramentas com gestão centralizada e logs."] },
           { title: "Liberar teste controlado", text: "Quando for avaliação, liberar por no máximo 30 dias, com dono interno e escopo definido.", type: "approval", details: ["A assinatura ou trial fica sujeita a revogação a qualquer momento.", "Acesso deve ser mínimo e removido ao fim do teste se não houver aprovação de continuidade."] },
           { title: "Comprovar utilidade", text: "Antes de continuar a assinatura, o solicitante precisa demonstrar resultado prático.", details: ["Exemplos: economia de tempo, melhoria operacional, receita protegida, redução de erro ou entrega realizada.", "Sem comprovação de utilidade, a assinatura deve ser cancelada ou não renovada."] },
           { title: "Revisar e renovar", text: "Renovação exige dono interno, usuários ativos, custo validado e revisão de acessos.", details: ["Licenças sem uso devem ser removidas.", "Apps conectados a GitHub, GCP, Jira, Drive, CMS ou bancos devem ser revisados mensalmente."] }
@@ -366,6 +367,11 @@ window.GOVERNANCA_PAGES = [
         title: "Referências oficiais",
         icon: "L",
         references: [
+          {
+            title: "Requisição de Novas Ferramentas",
+            url: "https://emotionstudios-1bmg.atlassian.net/jira/software/projects/GIO/form/371?atlOrigin=eyJpIjoiYjBjYjZhNGUxOWUwNGIyZDgzZmMzM2NiMzE2NTMxYjgiLCJwIjoiaiJ9",
+            description: "Formulário oficial para solicitar novas ferramentas, SaaS, apps, licenças, extensões, integrações ou recursos pagos."
+          },
           {
             title: "Atlassian - Jira Cloud permissions overview",
             url: "https://support.atlassian.com/jira-cloud-administration/docs/overview-of-jira-cloud-permissions/",
@@ -415,7 +421,7 @@ window.GOVERNANCA_PAGES = [
           { title: "Definir escopo e validade", text: "Registrar usuários, permissões, ambiente, limite de custo e data final em até 30 dias.", type: "risk", details: ["Acesso mínimo necessário.", "Sem renovação automática sem evidência de utilidade."] },
           { title: "Executar teste controlado", text: "Usar a ferramenta apenas para o objetivo aprovado.", details: ["Não expandir usuários, dados ou integrações sem novo registro.", "Registrar achados, limitações e resultados no Jira."] },
           { title: "Comprovar utilidade", text: "Antes do fim dos 30 dias, demonstrar benefício real para manter assinatura.", details: ["Evidências aceitas: relatório, entrega, ganho de tempo, redução de erro, economia, melhoria operacional ou impacto em receita.", "Opinião genérica não basta para renovação."] },
-          { title: "Decidir continuidade", text: "Gestor, time de dados e financeiro/gestão decidem manter, ajustar, cancelar ou revogar.", type: "approval", details: ["Continuidade vira assinatura oficial e entra na revisão mensal.", "Cancelamento exige revogação de acessos e remoção de integrações."] }
+          { title: "Decidir continuidade", text: "Gestor, time de dados e Daniele Kuhlmann decidem manter, ajustar, cancelar ou revogar.", type: "approval", details: ["Continuidade vira assinatura oficial e entra na revisão mensal.", "Cancelamento exige revogação de acessos e remoção de integrações."] }
         ]
       },
       {
@@ -455,7 +461,7 @@ window.GOVERNANCA_PAGES = [
     group: "Operação",
     title: "Política de uso de IA",
     kicker: "IA com validação humana",
-    owner: "Paulo e Fred Valente",
+    owner: "Paulo Soares de Moura e Fred Valente",
     audience: "Usuários de IA e donos técnicos",
     review: "Mensal",
     summary:
@@ -925,9 +931,9 @@ window.GOVERNANCA_PAGES = [
         title: "Padrão de repositório",
         icon: "G",
         checklist: [
-          "README.md, SECURITY.md, CODEOWNERS e .gitignore.",
-          ".env.example quando aplicável.",
-          "Workflow de CI e Dependabot quando aplicável.",
+          "Documentacao minima definida pela empresa no padrao tecnico vigente.",
+          "Arquivos de seguranca, ownership, variaveis e ignore conforme o padrao vigente.",
+          "Workflow de CI, Dependabot ou alternativa equivalente quando aplicável.",
           "Documentação mínima de instalação, execução e deploy.",
           "Dono técnico identificado."
         ]
@@ -1035,7 +1041,7 @@ window.GOVERNANCA_PAGES = [
         icon: "F",
         flow: [
           { title: "Criar na organização correta", text: "Todo repositório corporativo deve nascer em OneBigMedia-Dev, salvo exceção aprovada.", details: ["Privado por padrão.", "Dono técnico definido no README ou documentação."] },
-          { title: "Adicionar arquivos mínimos", text: "README.md, SECURITY.md, CODEOWNERS, .gitignore e .env.example quando aplicável.", details: ["SECURITY.md entra antes do primeiro uso operacional.", "CODEOWNERS define revisão de arquivos sensíveis."] },
+          { title: "Adicionar documentação mínima", text: "Aplicar a documentação mínima definida pela empresa no padrão técnico vigente.", details: ["Nomes como README.md, SECURITY.md, CODEOWNERS e .env.example são exemplos operacionais.", "O padrão técnico pode evoluir sem mudar a obrigação de documentar e revisar."] },
           { title: "Proteger main", text: "Bloquear push direto, force push e exclusão; exigir PR, checks e revisão.", type: "approval", details: ["Projetos de alto risco exigem pelo menos 2 aprovações.", "Arquivos sensíveis precisam de revisão dos donos definidos."] },
           { title: "Ativar segurança", text: "Secret scanning, push protection, Dependabot e CodeQL quando disponível.", type: "risk", details: ["Nenhum segredo deve ser versionado.", "Alertas precisam de dono e triagem recorrente."] },
           { title: "Registrar evidências", text: "Manter Jira, PRs, checks, aprovações e documentação conectados.", details: ["Sem rastreabilidade, o repositório não deve ir para produção."] }
@@ -1341,7 +1347,7 @@ window.GOVERNANCA_PAGES = [
           headers: ["Item", "Regra", "Evidência esperada"],
           rows: [
             ["Sistema operacional", "Preferir imagens oficiais e suportadas.", "Imagem, versão e motivo registrados no Jira."],
-            ["Software pago", "Precisa de aprovação de gestor e financeiro/gestão.", "Custo, fornecedor, usuários e prazo de revisão."],
+            ["Software pago", "Precisa de aprovação de gestor e Daniele Kuhlmann.", "Custo, fornecedor, usuários e prazo de revisão."],
             ["Software open source", "Deve ter licença compatível e origem confiável.", "Link do projeto, licença e motivo de uso."],
             ["Ferramenta conectada a dados", "Revisão do time de dados é obrigatória.", "Escopo de dados, permissões e responsável."],
             ["Chaves e credenciais", "Não devem ficar em arquivo solto na VM.", "Uso de Secret Manager, GitHub Secrets, Vault ou ferramenta aprovada."]
@@ -1545,7 +1551,7 @@ window.GOVERNANCA_PAGES = [
     group: "Processo",
     title: "Criação e validação de projetos",
     kicker: "Da solicitação à produção",
-    owner: "Paulo e dono técnico",
+    owner: "Paulo Soares de Moura e dono técnico",
     audience: "Solicitantes, donos técnicos e revisores",
     review: "Por projeto",
     summary:
@@ -1558,11 +1564,11 @@ window.GOVERNANCA_PAGES = [
           { title: "Solicitação no Jira", text: "Nome, solicitante, dono técnico, objetivo, dados, integrações, custo, criticidade e necessidades técnicas.", details: ["Evidência: ticket criado com template correto.", "Saída: risco inicial e dono técnico definidos."] },
           { title: "Triagem técnica", text: "Validar necessidade, solução existente, dados sensíveis, produção, custo e revisão de segurança.", details: ["Evidência: comentário de triagem no Jira.", "Saída: aprovado para discovery, recusado ou pendente de informação."] },
           { title: "Discovery e desenho", text: "Arquitetura, fluxo de dados, permissões, repositórios, GCP, banco, deploy, logs e riscos.", details: ["Evidência: desenho curto ou seção técnica no Jira.", "Saída: aprovação para implementação."] },
-          { title: "Criação do repositório", text: "Repo privado, main protegida, PR obrigatório, CODEOWNERS, SECURITY.md, CI, scanning e README.", details: ["Evidência: link do repositório e checklist de configuração.", "Saída: repositório pronto para desenvolvimento."] },
+          { title: "Criação do repositório", text: "Repo configurado conforme padrão técnico vigente: branch protegida, PR obrigatório, revisores, documentação mínima, CI e scanning quando aplicável.", details: ["Evidência: link do repositório e checklist de configuração.", "Saída: repositório pronto para desenvolvimento."] },
           { title: "Ambiente de desenvolvimento", text: "Dev, secrets de dev, service accounts de dev, dados seguros e pipeline de testes.", details: ["Evidência: instrução de execução e secrets fora do código.", "Saída: projeto rodando fora de produção."] },
           { title: "Desenvolvimento", text: "Branch, PR, sem segredos, testes, documentação, Jira e revisão.", details: ["Evidência: Pull Request com checklist preenchido.", "Saída: código revisado e integrado em main."] },
           { title: "Staging/homologação", text: "Build, testes, integrações, permissões, performance, consumo, logs, alertas, rollback e segurança.", details: ["Evidência: checklist de homologação aprovado.", "Saída: pronto para revisão de produção."] },
-          { title: "Revisão antes de produção", text: "Checklist obrigatório e aprovação final de Paulo.", details: ["Evidência: aprovação formal no Jira ou PR.", "Saída: autorização explícita para produção."] },
+          { title: "Revisão antes de produção", text: "Checklist obrigatório e revisão de governança por Paulo Soares de Moura.", details: ["Evidência: aprovação formal no Jira ou PR.", "Saída: autorização explícita para produção."] },
           { title: "Produção", text: "Deploy via pipeline, aprovação manual no GitHub Environment production, registro no Jira e monitoramento.", details: ["Evidência: execução do pipeline e registro de deploy.", "Saída: projeto em produção com rastreabilidade."] },
           { title: "Pós-produção", text: "Após 7 dias, revisar erros, custo real, logs, consumo, incidentes, alertas e pendências.", details: ["Evidência: comentário de revisão pós-produção.", "Saída: ajustes e pendências registrados."] }
         ]
@@ -1572,11 +1578,12 @@ window.GOVERNANCA_PAGES = [
         icon: "R",
         swimlane: [
           { title: "Solicitante", steps: ["Abre Jira", "Informa objetivo", "Detalha dados e urgência"] },
-          { title: "Paulo", steps: ["Triagem", "Valida avanço", "Aprova produção"] },
+          { title: "Paulo Soares de Moura", steps: ["Triagem", "Revisa projetos", "Valida governança"] },
           { title: "Dono técnico", steps: ["Discovery", "Arquitetura", "Desenvolvimento", "Sustentação"] },
           { title: "Revisor", steps: ["PR", "Riscos", "Testes", "Evidências"] },
           { title: "Admins", steps: ["Repositório", "Secrets", "IAM", "Ambientes"] },
-          { title: "Financeiro/Gestão", steps: ["Custo estimado", "Licenças", "Orçamentos recorrentes"] }
+          { title: "Daniele Kuhlmann", steps: ["Custo estimado", "Licenças", "Orçamentos recorrentes"] },
+          { title: "Fred Valente", steps: ["Libera acessos", "Revoga acessos", "Revisa permissões"] }
         ]
       },
       {
@@ -1586,10 +1593,10 @@ window.GOVERNANCA_PAGES = [
           headers: ["Situação", "Aprovação necessária", "Evidência mínima"],
           rows: [
             ["Teste, POC ou trial de ferramenta", "Gestor da área e time de dados quando houver dados ou integração.", "Jira com objetivo, prazo máximo de 30 dias, usuários, escopo e critério de utilidade."],
-            ["Nova ferramenta paga ou assinatura recorrente", "Gestor, dono interno, financeiro/gestão e revisão técnica conforme risco.", "Custo, usuários, dados acessados, permissões, dono e data de revisão."],
-            ["Projeto técnico sem produção", "Dono técnico e triagem de Paulo quando envolver dados, IA, GCP ou GitHub.", "Ticket Jira, classificação de risco, desenho curto e critérios de sucesso."],
+            ["Nova ferramenta paga ou assinatura recorrente", "Gestor, dono interno, Daniele Kuhlmann e revisão técnica conforme risco.", "Custo, usuários, dados acessados, permissões, dono e data de revisão."],
+            ["Projeto técnico sem produção", "Dono técnico e triagem de Paulo Soares de Moura quando envolver dados, IA, GCP ou GitHub.", "Ticket Jira, classificação de risco, desenho curto e critérios de sucesso."],
             ["Uso de máquina virtual", "Gestor, dono técnico, P&D e administrador GCP.", "Justificativa para VM, alternativas avaliadas, dimensionamento, custo, segurança, licenças e prazo de revisão."],
-            ["Projeto com produção", "Dono técnico, revisor técnico, Paulo e aprovadores de produção.", "PR aprovado, CI passando, rollback, logs, alertas, secrets fora do código e checklist de produção."],
+            ["Projeto com produção", "Dono técnico, revisor técnico, Paulo Soares de Moura e aprovadores de produção.", "PR aprovado, CI passando, rollback, logs, alertas, secrets fora do código e checklist de produção."],
             ["Acesso a dados, banco, GCP, CMS ou APIs críticas", "Time de dados, dono técnico e administrador responsável.", "Escopo de acesso, justificativa, prazo, menor privilégio e registro no Jira."],
             ["Uso de IA com dados internos ou conectores", "Dono técnico, Paulo/Fred quando aplicável e revisão de segurança conforme risco.", "Finalidade, dados enviados, ferramenta/modelo, permissões e limite de custo."]
           ]
@@ -1606,7 +1613,7 @@ window.GOVERNANCA_PAGES = [
           "IAM revisado e service accounts separadas por ambiente.",
           "Banco protegido e backup configurado quando aplicável.",
           "Logs, alertas, custo estimado e rollback documentados.",
-          "Documentação mínima concluída e aprovação final de Paulo."
+          "Documentação mínima concluída e revisão de governança por Paulo Soares de Moura."
         ]
       }
     ]
@@ -2276,6 +2283,18 @@ Se um segredo for exposto:
         ]
       },
       {
+        title: "Registro oficial de incidente",
+        icon: "J",
+        body: "Incidentes de segurança, suspeita de vazamento, exposição de credenciais, acesso indevido ou risco operacional devem ser registrados no formulário oficial para manter rastreabilidade e resposta coordenada.",
+        references: [
+          {
+            title: "Registro de Incidentes",
+            url: "https://emotionstudios-1bmg.atlassian.net/jira/software/c/projects/SPP/form/372?atlOrigin=eyJpIjoiMDA1NTQyODc2MWVlNGNjMWJhNWI1NTRmMGVmMmRlZjciLCJwIjoiaiJ9",
+            description: "Formulário oficial para registrar incidentes de segurança, vazamentos, acessos indevidos e eventos relevantes."
+          }
+        ]
+      },
+      {
         title: "Fluxo de resposta a incidente",
         icon: "F",
         flow: [
@@ -2304,36 +2323,170 @@ Se um segredo for exposto:
     ]
   },
   {
+    id: "controles-complementares",
+    nav: "Controles complementares",
+    group: "Tecnologia",
+    title: "Controles complementares de governanca",
+    kicker: "Dados, logs, backup, supply chain e acessos",
+    owner: "Paulo Soares de Moura, Daniele Kuhlmann e Fred Valente",
+    audience: "Donos tecnicos, revisores, aprovadores, admins e juridico",
+    review: "Mensal ou quando houver mudanca de risco, lei, ferramenta ou processo",
+    summary:
+      "Esta pagina consolida controles que precisam existir alem do checklist basico de projeto: LGPD, classificacao da informacao, backup, logs, supply chain, SSO, offboarding e gestao de excecoes.",
+    sections: [
+      {
+        title: "Documentacao minima definida pela empresa",
+        icon: "D",
+        body:
+          "Contratos e politicas nao devem depender de nomes fixos de arquivos. A obrigacao principal e manter a documentacao minima definida pela OneBigMedia no padrao tecnico vigente.",
+        cards: [
+          {
+            title: "Regra contratual estavel",
+            text: "Usar a expressao documentacao minima definida pela empresa evita alterar contratos quando nomes como README.md, SECURITY.md ou OBMG_SecSpec.md mudarem."
+          },
+          {
+            title: "Padrao tecnico separado",
+            text: "Nomes, templates, checklists e arquivos obrigatorios devem ficar no padrao tecnico vigente, que pode evoluir sem alterar o contrato."
+          },
+          {
+            title: "Obrigacao que permanece",
+            text: "Mesmo que o nome do arquivo mude, continuam obrigatorios dono, risco, seguranca, evidencias, aprovacao, rastreabilidade e documentacao suficiente."
+          }
+        ]
+      },
+      {
+        title: "LGPD e dados pessoais",
+        icon: "L",
+        checklist: [
+          "Todo tratamento de dados pessoais deve ter finalidade definida e fundamento juridico aplicavel.",
+          "Usar minimizacao: coletar, armazenar e processar apenas o necessario.",
+          "Definir retencao e descarte seguro.",
+          "Usar anonimizacao, pseudonimizacao ou mascaramento quando possivel.",
+          "Evitar dados pessoais reais em dev, testes, fixtures, logs, prompts e ambientes locais.",
+          "Incidentes envolvendo dados pessoais devem ser comunicados internamente de forma imediata para avaliacao juridica e tecnica.",
+          "Fornecedores e subprocessadores que tratem dados pessoais devem ser avaliados e registrados conforme risco."
+        ]
+      },
+      {
+        title: "Classificacao da informacao",
+        icon: "C",
+        matrix: {
+          headers: ["Classe", "Uso", "Exemplos"],
+          rows: [
+            ["Publico", "Pode ser divulgado quando aprovado.", "Site institucional, politica publica, material aprovado para divulgacao."],
+            ["Interno", "Uso interno da OneBigMedia, sem exposicao publica por padrao.", "Processos, documentos operacionais, materiais de treinamento."],
+            ["Confidencial", "Acesso restrito por necessidade de trabalho.", "Dados financeiros, relatorios internos, informacoes de clientes, contratos, estrategias."],
+            ["Restrito", "Acesso altamente controlado e auditavel.", "Credenciais, tokens, service accounts, incidentes, dados pessoais sensiveis, detalhes de infraestrutura."]
+          ]
+        }
+      },
+      {
+        title: "Backup, restauracao e continuidade",
+        icon: "B",
+        checklist: [
+          "Sistemas criticos devem definir escopo, frequencia e retencao de backup.",
+          "Backups devem ter controle de acesso e criptografia quando aplicavel.",
+          "Restore deve ser testado periodicamente; backup sem teste nao prova recuperacao.",
+          "Definir RPO: perda maxima aceitavel de dados.",
+          "Definir RTO: tempo maximo aceitavel de indisponibilidade.",
+          "Sistemas criticos devem ter plano de recuperacao ou disaster recovery proporcional ao risco.",
+          "Mudancas de producao devem considerar rollback e impacto em backup/restore."
+        ]
+      },
+      {
+        title: "Logs e auditoria",
+        icon: "O",
+        checklist: [
+          "Definir eventos obrigatorios de log: acesso, alteracao, erro, deploy, admin e operacoes sensiveis.",
+          "Definir tempo de retencao por sistema e classe da informacao.",
+          "Restringir quem pode visualizar, exportar ou apagar logs.",
+          "Logs de sistemas criticos podem exigir armazenamento protegido ou imutavel.",
+          "Senhas, tokens, cookies, chaves e segredos nao devem aparecer em logs.",
+          "Logs com dados pessoais ou financeiros devem ter acesso restrito.",
+          "Em incidentes, logs relevantes devem ser preservados."
+        ]
+      },
+      {
+        title: "Supply chain",
+        icon: "S",
+        checklist: [
+          "Revisar dependencias npm, pip, imagens Docker, GitHub Actions, plugins e bibliotecas de terceiros.",
+          "Avaliar origem, reputacao, manutencao, licenca e necessidade real antes de adicionar dependencia.",
+          "Usar Dependabot, Renovate ou ferramenta equivalente quando aplicavel.",
+          "Aplicar dependency review em Pull Requests sensiveis.",
+          "Considerar SBOM para sistemas criticos.",
+          "Fixar versoes ou referencias confiaveis quando possivel.",
+          "Evitar scripts remotos e imagens desconhecidas sem revisao.",
+          "Dependencias sugeridas por IA devem passar por revisao humana."
+        ]
+      },
+      {
+        title: "SSO, MFA e offboarding",
+        icon: "A",
+        cards: [
+          {
+            title: "SSO",
+            text: "Sempre que disponivel, ferramentas corporativas devem usar autenticacao centralizada integrada ao provedor de identidade da empresa."
+          },
+          {
+            title: "MFA",
+            text: "MFA deve ser exigido para contas corporativas, administradores, GitHub, GCP, Jira, IA, CMS, bancos e fornecedores criticos."
+          },
+          {
+            title: "Offboarding",
+            text: "Ao sair, mudar de funcao ou encerrar contrato, acessos a GitHub, GCP, IA, Google, Jira, banco, CMS, VPN, tokens e equipamentos devem ser revogados ou transferidos."
+          },
+          {
+            title: "Responsavel por acessos",
+            text: "Fred Valente e responsavel por liberacao, revisao, suspensao e revogacao de acessos conforme escopo e risco."
+          }
+        ]
+      },
+      {
+        title: "Gestao de excecoes",
+        icon: "E",
+        checklist: [
+          "Toda excecao deve ter solicitante, dono, justificativa, risco aceito e aprovador.",
+          "Excecoes devem ter escopo, prazo de validade e data de revisao.",
+          "Excecoes devem indicar controles compensatorios.",
+          "Excecoes nao devem ser permanentes por padrao.",
+          "Excecoes vencidas, sem dono ou sem justificativa devem ser revogadas ou reavaliadas.",
+          "Paulo Soares de Moura revisa aderencia de projetos a governanca; Daniele Kuhlmann aprova orcamento/contratacao; Fred Valente libera ou revoga acessos."
+        ]
+      }
+    ]
+  },
+  {
     id: "novo-projeto-skills",
     nav: "Novo projeto e skills",
     group: "Tecnologia",
     title: "Estrutura de seguranca para novos projetos",
     kicker: "SECURITY.md, OBMG_SecSpec.md e skills",
-    owner: "Paulo e dono tecnico do projeto",
+    owner: "Paulo Soares de Moura e dono tecnico do projeto",
     audience: "Donos tecnicos, revisores e pessoas que usam agentes de IA",
     review: "Em todo novo projeto e antes de producao",
     summary:
-      "Todo novo projeto deve nascer com uma estrutura minima de seguranca. SECURITY.md define a politica curta do repositorio, OBMG_SecSpec.md define o contrato tecnico interno e as skills orientam o Codex a aplicar essas regras durante revisao, implementacao e liberacao.",
+      "Todo novo projeto deve nascer com a documentacao minima de seguranca definida pela empresa. Os nomes de arquivos podem mudar, mas a obrigacao de registrar politica, especificacao, ownership, riscos, aprovacao e evidencias permanece.",
     sections: [
       {
-        title: "Estrutura minima da pasta",
+        title: "Estrutura minima definida pela empresa",
         icon: "D",
         body:
-          "Ao iniciar um projeto novo, crie a base abaixo antes de conectar producao, banco, GCP, OAuth, CMS, GitHub Actions, dados sensiveis ou automacoes com IA.",
+          "Ao iniciar um projeto novo, siga a documentacao minima definida pela OneBigMedia no padrao tecnico vigente antes de conectar producao, banco, GCP, OAuth, CMS, GitHub Actions, dados sensiveis ou automacoes com IA.",
         structure: {
           root: "novo-projeto/",
           groups: [
             {
-              title: "Documentacao",
-              items: ["README.md", "SECURITY.md", "OBMG_SecSpec.md"]
+              title: "Documentacao minima",
+              items: ["Politica de seguranca", "Especificacao tecnica", "Instrucoes operacionais"]
             },
             {
               title: "Controle de acesso",
-              items: ["CODEOWNERS", ".gitignore", ".env.example"]
+              items: ["Donos/revisores", "Arquivos bloqueados", "Exemplo de variaveis"]
             },
             {
               title: "GitHub",
-              items: [".github/workflows/ci.yml", ".github/dependabot.yml", ".github/pull_request_template.md"]
+              items: ["CI quando aplicavel", "Dependencias", "Template de Pull Request"]
             },
             {
               title: "Validacao",
@@ -2364,7 +2517,7 @@ Se um segredo for exposto:
         title: "Fluxo em uma nova pasta",
         icon: "P",
         flow: [
-          { title: "Criar base", text: "Adicionar README.md, SECURITY.md, OBMG_SecSpec.md, CODEOWNERS, .gitignore e .env.example.", details: ["Sem essa base, o projeto ainda nao esta pronto para acesso sensivel.", "Use dados ficticios em dev sempre que possivel."] },
+          { title: "Criar base", text: "Adicionar a documentacao minima definida pela empresa no padrao tecnico vigente.", details: ["Nomes como README.md, SECURITY.md e OBMG_SecSpec.md sao exemplos atuais, nao a regra contratual fixa.", "Use dados ficticios em dev sempre que possivel."] },
           { title: "Validar contrato de IA", text: "Antes de liberar IA paga ou administrada pela OneBigMedia, confirmar contrato, termo ou aditivo assinado pelo usuario.", type: "approval", details: ["Sem aceite/assinatura registrada, o acesso a IA corporativa pode ser negado, suspenso ou revogado.", "O uso deve ficar limitado a projetos, demandas e objetivos corporativos da OneBigMedia."] },
           { title: "Classificar risco", text: "Definir baixo, medio ou alto conforme dados, producao, credenciais, GCP, CMS, banco, IA e custo.", type: "risk", details: ["Na duvida, tratar temporariamente como maior risco.", "Producao, banco real, OAuth, CMS e admin elevam o risco."] },
           { title: "Aplicar skill", text: "Chamar $onebigmedia-security para revisar estrutura, documentos, secrets, CI/CD, GCP, banco, IA e release gate.", type: "decision", details: ["A skill procura SECURITY.md e OBMG_SecSpec.md.", "Ela cruza o projeto com as regras da OneBigMedia."] },
