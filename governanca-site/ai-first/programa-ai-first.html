@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programa AI First - One Big Media</title>
+<style>
+:root{
+  --bg:#0c0d12;
+  --surface:#151720;
+  --surface-2:#1c1f2a;
+  --line:#2b2f3d;
+  --text:#f4f2ec;
+  --muted:#a4a6b5;
+  --dim:#747887;
+  --amber:#f5a623;
+  --blue:#7b8cff;
+  --green:#5fd08a;
+  --red:#ff6b6b;
+  --max:1180px;
+  --radius:8px;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:Inter,Segoe UI,Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 520px at 82% -12%, rgba(245,166,35,.12), transparent 60%),
+    radial-gradient(760px 480px at 8% 0%, rgba(123,140,255,.11), transparent 64%),
+    var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  line-height:1.55;
+}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(12,13,18,.84);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.01em;text-decoration:none}
+.brand span{color:var(--amber)}
+.links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.links a{font-size:13px;color:var(--muted);text-decoration:none}
+.links a:hover{color:var(--text)}
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:38px;padding:0 14px;border:1px solid var(--amber);border-radius:var(--radius);
+  color:#11131a;background:var(--amber);font-family:var(--mono);font-size:12px;font-weight:700;text-decoration:none;
+}
+.hero{padding:76px 0 44px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:48px;align-items:end}
+.eyebrow{font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:14px}
+.eyebrow b{color:var(--amber)}
+h1,h2,h3{margin:0;line-height:1.08}
+h1{font-size:clamp(40px,6vw,76px);letter-spacing:-.035em;max-width:820px}
+h1 span{color:var(--amber)}
+.lead{font-size:18px;color:var(--muted);max-width:660px;margin:22px 0 28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:0 18px;border-radius:var(--radius);
+  text-decoration:none;font-family:var(--mono);font-size:13px;font-weight:700;
+}
+.btn-primary{background:var(--amber);color:#11131a}
+.btn-secondary{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.02)}
+.brief{
+  border:1px solid var(--line);border-radius:var(--radius);background:rgba(21,23,32,.82);
+  padding:20px;display:grid;gap:16px;
+}
+.brief-row{display:grid;grid-template-columns:92px 1fr;gap:14px;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:14px}
+.brief-row:last-child{border-bottom:0;padding-bottom:0}
+.brief-row strong{font-family:var(--mono);font-size:12px;color:var(--amber);text-transform:uppercase}
+.brief-row span{color:var(--muted);font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line);margin-top:34px}
+.stat{background:var(--surface);padding:20px}
+.stat b{display:block;font-size:30px;line-height:1;color:var(--amber)}
+.stat span{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px}
+section{padding:58px 0;border-top:1px solid rgba(255,255,255,.07);scroll-margin-top:82px}
+.section-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(260px,.45fr);gap:30px;margin-bottom:26px}
+h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.025em}
+.section-head p{margin:0;color:var(--muted)}
+.note{
+  border:1px solid rgba(245,166,35,.32);
+  background:rgba(245,166,35,.1);
+  border-radius:var(--radius);
+  padding:14px 16px;
+  color:var(--muted);
+}
+.note b{color:var(--amber)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.panel{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
+  padding:18px;
+}
+.panel h3{font-size:17px;margin-bottom:8px}
+.panel p,.panel li{color:var(--muted);font-size:14px}
+.panel ul{margin:10px 0 0;padding-left:18px}
+.pre-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:16px}
+.steps{display:grid;gap:10px}
+.step{
+  display:grid;grid-template-columns:46px 1fr;gap:14px;
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:15px;
+}
+.step-num{
+  width:34px;height:34px;border-radius:var(--radius);display:grid;place-items:center;
+  background:rgba(123,140,255,.13);color:var(--blue);font-family:var(--mono);font-weight:800;
+}
+.step h3{font-size:16px;margin-bottom:4px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.course-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.course{
+  display:block;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);
+  padding:14px;text-decoration:none;
+}
+.course strong{display:block;font-size:15px;margin-bottom:4px}
+.course span{display:block;color:var(--muted);font-size:13px}
+.course:hover{border-color:var(--amber)}
+.agenda{display:grid;gap:14px}
+.day{
+  display:grid;grid-template-columns:104px 1fr;
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;
+}
+.day-label{
+  background:var(--surface-2);border-right:1px solid var(--line);
+  padding:18px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+}
+.day-label b{font-size:28px;color:var(--blue);line-height:1}
+.day-label span{font-family:var(--mono);font-size:10px;color:var(--dim);text-transform:uppercase;margin-top:6px}
+.day-body{padding:18px 20px}
+.day-body h3{font-size:20px;margin-bottom:10px}
+.day-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.day-col strong{display:block;font-family:var(--mono);font-size:11px;color:var(--amber);text-transform:uppercase;margin-bottom:6px}
+.day-col ul{margin:0;padding-left:17px}
+.day-col li{color:var(--muted);font-size:14px;margin-bottom:5px}
+.tag{
+  display:inline-flex;margin-top:12px;border:1px solid rgba(95,208,138,.35);
+  background:rgba(95,208,138,.1);color:var(--green);
+  border-radius:var(--radius);padding:6px 10px;font-family:var(--mono);font-size:12px;
+}
+.challenge{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:14px}
+.field strong{display:block;color:var(--text);font-size:14px;margin-bottom:4px}
+.field span{display:block;color:var(--muted);font-size:13px}
+.refs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ref{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:14px}
+.ref strong{display:block;font-size:14px;margin-bottom:6px}
+.ref span{display:block;color:var(--muted);font-size:12px}
+footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;border-top:1px solid rgba(255,255,255,.07)}
+@media(max-width:980px){
+  .hero-grid,.section-head,.pre-grid,.challenge{grid-template-columns:1fr}
+  .day-cols{grid-template-columns:1fr}
+  .refs{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .nav-inner{height:auto;align-items:flex-start;padding:14px 0;flex-direction:column}
+  .links{gap:12px}
+  .stats,.grid-3,.course-list,.fields,.refs{grid-template-columns:1fr}
+  .day{grid-template-columns:74px 1fr}
+  .day-label b{font-size:22px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">~/ai-first <span>One Big Media</span></a>
+    <div class="links">
+      <a href="#pre-curso">Pre-curso</a>
+      <a href="#agenda">8 semanas</a>
+      <a href="#desafios">Desafios</a>
+      <a href="#referencias">Referencias</a>
+      <a class="cta" href="pre-curso-ai-first.html">Abrir pre-curso</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">~/programa/<b>ai-first</b> --8-semanas --mvp</div>
+          <h1>Programa <span>AI First</span> para formar Citizen Developers.</h1>
+          <p class="lead">Um intensivo pratico para quebrar a barreira tecnica da IA na One Big Media. Cada participante entra com um desafio real da sua area e sai com um MVP funcional, validado e documentado.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#agenda">Ver agenda por semana</a>
+            <a class="btn btn-secondary" href="#desafios">Preparar desafio da area</a>
+          </div>
+        </div>
+        <aside class="brief" aria-label="Resumo do programa">
+          <div class="brief-row"><strong>Formato</strong><span>8 encontros semanais de 2h, inicialmente às sextas à tarde, com atividades praticas durante o expediente.</span></div>
+          <div class="brief-row"><strong>Turma</strong><span>Grupo seletivo de ate 8 pessoas com familiaridade inicial em plataformas de IA.</span></div>
+          <div class="brief-row"><strong>Resultado</strong><span>Um MVP por participante, conectado a uma dor real do negocio.</span></div>
+          <div class="brief-row"><strong>Governanca</strong><span>Uso de IA, dados, acessos e ferramentas segue as diretrizes OneBigMedia e o aditivo juridico aplicavel.</span></div>
+        </aside>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>8</b><span>semanas de construcao</span></div>
+        <div class="stat"><b>2h</b><span>por encontro ao vivo</span></div>
+        <div class="stat"><b>8</b><span>vagas seletivas</span></div>
+        <div class="stat"><b>1</b><span>MVP funcional por pessoa</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="pre-curso">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">~/ai-first/<b>pre-curso</b> --antes-da-semana-1</div>
+          <h2>Pre-curso: ambiente, acessos e fundamentos.</h2>
+        </div>
+        <p>O pre-curso garante que todo mundo chegue na Semana 1 com acesso, ferramentas instaladas e uma primeira ideia de desafio. A pagina atual de pre-curso continua sendo o guia operacional de instalacao.</p>
+      </div>
+      <div class="pre-grid">
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div><h3>Acesso corporativo</h3><p>Confirmar acesso ao Claude Code com Fred Valente usando conta individual vinculada ao e-mail corporativo da Emotions/One Big Media. Nao compartilhar conta, sessao ou chave.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><h3>Instalacao do ambiente</h3><p>Instalar VS Code, Git, Node.js LTS, Python e Claude Code. Validar tudo no terminal com comandos de versao.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><h3>Fundamentos essenciais</h3><p>Entender LLMs, prompt, ciclo de trabalho com agente, revisao humana e limites de seguranca.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div><h3>Desafio inicial</h3><p>Cada participante chega com 2 ou 3 dores reais da area para avaliacao de viabilidade, risco e impacto.</p></div></div>
+        </div>
+        <div class="panel">
+          <h3>Cursos essenciais de Claude Code e IA</h3>
+          <p>Fazer antes da Semana 1 ou durante a primeira semana. O objetivo nao e decorar: e chegar com vocabulario e contexto para executar.</p>
+          <div class="course-list" style="margin-top:14px">
+            <a class="course" href="https://www.anthropic.com/learn"><strong>Anthropic Academy</strong><span>Cursos oficiais para uso do Claude e fundamentos de IA.</span></a>
+            <a class="course" href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"><strong>Prompt Engineering</strong><span>Como dar contexto, objetivo, formato e exemplos.</span></a>
+            <a class="course" href="https://docs.claude.com/en/docs/claude-code/overview"><strong>Claude Code Overview</strong><span>Visao geral da ferramenta e casos de uso.</span></a>
+            <a class="course" href="https://docs.claude.com/en/docs/claude-code/quickstart"><strong>Claude Code Quickstart</strong><span>Primeira sessao e comandos iniciais.</span></a>
+          </div>
+          <div class="note" style="margin-top:14px"><b>Regra:</b> nenhuma instalacao, extensao, conector ou ferramenta paga deve ser contratada por conta propria. Novas ferramentas seguem o fluxo de requisicao e aprovacao da empresa.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">~/ai-first/<b>agenda</b> --semana-1..8</div>
+          <h2>Lista do que vamos ensinar em cada encontro.</h2>
+        </div>
+        <p>Cada encontro tem tres movimentos: conceito curto, pratica guiada e evolucao do MVP. A dor real de cada area e o fio condutor do curso.</p>
+      </div>
+      <div class="agenda">
+        <article class="day">
+          <div class="day-label"><b>01</b><span>fundacao</span></div>
+          <div class="day-body">
+            <h3>Mentalidade AI First, Citizen Developer e escolha do desafio</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>O que e ser AI First na pratica.</li><li>Como uma dor vira automacao.</li><li>Como avaliar impacto, risco e viabilidade.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Cada pessoa apresenta 1 a 3 dores da area.</li><li>Priorizacao por impacto, frequencia e dados disponiveis.</li><li>Definicao do problema do MVP.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Ficha do desafio escolhida.</li><li>Objetivo do MVP em uma frase.</li><li>Criterio de sucesso definido.</li></ul></div>
+            </div>
+            <span class="tag">MVP: problema validado</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>02</b><span>logica</span></div>
+          <div class="day-body">
+            <h3>Pensamento computacional, fluxo de trabalho e decomposicao</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como quebrar uma rotina em etapas.</li><li>Entradas, saidas, regras e excecoes.</li><li>Fluxograma simples para orientar a IA.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Mapear o processo atual da area.</li><li>Identificar gargalos e decisoes humanas.</li><li>Escrever o primeiro prompt de arquitetura.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Fluxo da solucao desenhado.</li><li>Lista de dados/sistemas envolvidos.</li><li>Backlog inicial do MVP.</li></ul></div>
+            </div>
+            <span class="tag">MVP: fluxo desenhado</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>03</b><span>claude</span></div>
+          <div class="day-body">
+            <h3>Claude Code: projeto, contexto, arquivos e iteracao segura</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como abrir uma sessao e explicar o projeto.</li><li>Como pedir plano antes da execucao.</li><li>Como revisar alteracoes, comandos e arquivos.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Criar a pasta do MVP.</li><li>Gerar README inicial e plano de implementacao.</li><li>Executar primeira automacao local simples.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Projeto local iniciado.</li><li>Primeira automacao funcionando.</li><li>Registro do que a IA alterou.</li></ul></div>
+            </div>
+            <span class="tag">MVP: primeiro prototipo local</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>04</b><span>dados</span></div>
+          <div class="day-body">
+            <h3>Dados, planilhas, arquivos e tratamento seguro</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como ler CSV, Excel, TXT e pastas de arquivos.</li><li>Como limpar dados e padronizar colunas.</li><li>Como usar dados ficticios, mascarados ou minimizados.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Montar uma base de teste do desafio.</li><li>Criar pipeline simples de entrada e saida.</li><li>Validar resultado com casos reais anonimizados.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Dados de teste preparados.</li><li>Script ou rotina de transformacao.</li><li>Regras de seguranca registradas.</li></ul></div>
+            </div>
+            <span class="tag">MVP: pipeline de dados</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>05</b><span>integrar</span></div>
+          <div class="day-body">
+            <h3>Integracoes, APIs, ferramentas internas e automacao</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>O que e API, token, permissao e limite de acesso.</li><li>Quando usar planilha, arquivo, endpoint ou conector.</li><li>Como registrar nova ferramenta quando necessario.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Conectar o MVP a uma fonte aprovada.</li><li>Automatizar uma etapa manual da rotina.</li><li>Registrar riscos, acessos e dependencias.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Integracao controlada funcionando.</li><li>Limites de permissao definidos.</li><li>Plano para remover acessos se o teste parar.</li></ul></div>
+            </div>
+            <span class="tag">MVP: automacao integrada</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>06</b><span>build</span></div>
+          <div class="day-body">
+            <h3>Construcao do MVP: interface, execucao e testes simples</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como transformar prototipo em ferramenta utilizavel.</li><li>Como criar comandos, relatorios ou telas simples.</li><li>Como testar casos felizes e erros comuns.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Fechar o fluxo principal do MVP.</li><li>Criar uma forma simples de uso pelo time.</li><li>Testar com dados de exemplo.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>MVP beta rodando de ponta a ponta.</li><li>Checklist de teste preenchido.</li><li>Lista de pendencias para polimento.</li></ul></div>
+            </div>
+            <span class="tag">MVP: beta funcional</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>07</b><span>seguro</span></div>
+          <div class="day-body">
+            <h3>Refino, governanca, seguranca, documentacao e compliance</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como revisar segredos, dados e permissao.</li><li>Como documentar uso, limites e responsavel.</li><li>Como preparar uma solucao para avaliacao interna.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Revisar riscos do MVP.</li><li>Remover segredos, dados desnecessarios e acessos amplos.</li><li>Completar documentacao minima.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>MVP revisado com checklist de seguranca.</li><li>README de uso e manutencao.</li><li>Plano de continuidade ou descarte.</li></ul></div>
+            </div>
+            <span class="tag">MVP: pronto para demo interna</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>08</b><span>demo</span></div>
+          <div class="day-body">
+            <h3>Demo Day: apresentacao, decisao e proximos passos</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como contar o problema, solucao e impacto.</li><li>Como demonstrar sem depender de improviso.</li><li>Como decidir se o MVP vira produto interno.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Demo de cada participante.</li><li>Feedback tecnico e de negocio.</li><li>Definicao de continuidade, backlog ou encerramento.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Apresentacao do MVP.</li><li>Registro de impacto e aprendizados.</li><li>Plano de proxima versao ou transferencia.</li></ul></div>
+            </div>
+            <span class="tag">MVP: apresentado e avaliado</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="desafios">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">~/ai-first/<b>desafios</b> --por-area</div>
+          <h2>Cada pessoa traz uma dor real da area.</h2>
+        </div>
+        <p>A escolha do desafio e o ponto mais importante do programa. O melhor caso nao e o mais complexo: e aquele que tem impacto claro, dados acessiveis, risco controlado e alguem disposto a validar o resultado.</p>
+      </div>
+      <div class="challenge">
+        <div class="panel">
+          <h3>Como vamos avaliar cada desafio</h3>
+          <ul>
+            <li>Repeticao: acontece toda semana, todo mes ou consome muitas horas?</li>
+            <li>Impacto: reduz erro, economiza tempo, melhora receita, protege informacao ou acelera decisao?</li>
+            <li>Dados: os insumos existem e podem ser usados com seguranca?</li>
+            <li>Escopo: cabe em 8 semanas como MVP?</li>
+            <li>Risco: envolve producao, dados pessoais, financeiro, clientes, CMS, GCP, GitHub ou credenciais?</li>
+            <li>Dono: existe alguem da area que valide se a solucao realmente funciona?</li>
+          </ul>
+        </div>
+        <div class="fields">
+          <div class="field"><strong>Area e responsavel</strong><span>Quem traz o desafio e quem valida o resultado.</span></div>
+          <div class="field"><strong>Processo atual</strong><span>Como e feito hoje, com quais ferramentas e quanto tempo consome.</span></div>
+          <div class="field"><strong>Dor principal</strong><span>Erro, retrabalho, atraso, custo, risco ou oportunidade perdida.</span></div>
+          <div class="field"><strong>Dados envolvidos</strong><span>Planilhas, arquivos, APIs, bancos, relatórios, e-mails ou sistemas.</span></div>
+          <div class="field"><strong>Resultado esperado</strong><span>O que precisa existir ao final para considerar o MVP util.</span></div>
+          <div class="field"><strong>Limites de seguranca</strong><span>O que nao pode ser exposto, automatizado ou acessado sem aprovacao.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="referencias">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">~/ai-first/<b>referencias</b> --links</div>
+          <h2>Referencias oficiais do programa.</h2>
+        </div>
+        <p>Esses links concentram as regras e apoios que o participante precisa consultar durante o pre-curso e ao longo das 8 semanas.</p>
+      </div>
+      <div class="refs">
+        <a class="ref" href="pre-curso-ai-first.html"><strong>Pre-curso AI First</strong><span>Instalacao, fundamentos, checklist e governanca resumida.</span></a>
+        <a class="ref" href="https://onebigmedia-dev.github.io/governanca-seguranca-onebigmedia/"><strong>Governanca OneBigMedia</strong><span>Fonte oficial de regras, acessos, IA, incidentes e ferramentas.</span></a>
+        <a class="ref" href="https://emotionstudios-handbook.pages.dev/"><strong>Handbook Emotions</strong><span>Referencia para acesso ao Claude Code liberado pelo Fred Valente.</span></a>
+        <a class="ref" href="https://docs.claude.com/en/docs/claude-code/quickstart"><strong>Claude Code Quickstart</strong><span>Guia oficial para primeira sessao com Claude Code.</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Programa AI First - One Big Media - P&D - estrutura inicial de curso baseada no PPTX do projeto, no pre-curso existente e nas referencias internas.</div>
+</footer>
+</body>
+</html>
