@@ -217,14 +217,14 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
           <div class="eyebrow">~/ai-first/<b>pre-curso</b> --antes-da-semana-1</div>
           <h2>Pre-curso: ambiente, acessos e fundamentos.</h2>
         </div>
-        <p>O pre-curso garante que todo mundo chegue na Semana 1 com acesso, ferramentas instaladas e uma primeira ideia de desafio. A pagina atual de pre-curso continua sendo o guia operacional de instalacao.</p>
+        <p>O pre-curso garante que todo mundo chegue na Semana 1 com ambiente completo: VS Code, Claude Code CLI, extensão do Claude no VS Code, Git, Node.js, Next.js via create-next-app, Python, login corporativo e primeira pasta estruturada.</p>
       </div>
       <div class="pre-grid">
         <div class="steps">
           <div class="step"><div class="step-num">1</div><div><h3>Acesso corporativo</h3><p>Confirmar acesso ao Claude Code com Fred Valente usando conta individual vinculada ao e-mail corporativo da Emotions/One Big Media. Nao compartilhar conta, sessao ou chave.</p></div></div>
-          <div class="step"><div class="step-num">2</div><div><h3>Instalacao do ambiente</h3><p>Instalar VS Code, Git, Node.js LTS, Python e Claude Code. Validar tudo no terminal com comandos de versao.</p></div></div>
-          <div class="step"><div class="step-num">3</div><div><h3>Fundamentos essenciais</h3><p>Entender LLMs, prompt, ciclo de trabalho com agente, revisao humana e limites de seguranca.</p></div></div>
-          <div class="step"><div class="step-num">4</div><div><h3>Desafio inicial</h3><p>Cada participante chega com 2 ou 3 dores reais da area para avaliacao de viabilidade, risco e impacto.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><h3>Instalacao do ambiente</h3><p>Instalar VS Code, extensão Claude Code, Git, Node.js LTS, Python, Claude Code CLI e validar com claude doctor.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><h3>Primeira pasta estruturada</h3><p>Criar ai-first-lab com docs, dados, scripts e app; gerar um projeto Next.js de treino para operar no VS Code.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div><h3>Desafio inicial</h3><p>Cada participante chega com 2 ou 3 dores reais da area para avaliacao de viabilidade, risco, impacto e dados disponiveis.</p></div></div>
         </div>
         <div class="panel">
           <h3>Cursos essenciais de Claude Code e IA</h3>
@@ -234,6 +234,8 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
             <a class="course" href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"><strong>Prompt Engineering</strong><span>Como dar contexto, objetivo, formato e exemplos.</span></a>
             <a class="course" href="https://docs.claude.com/en/docs/claude-code/overview"><strong>Claude Code Overview</strong><span>Visao geral da ferramenta e casos de uso.</span></a>
             <a class="course" href="https://docs.claude.com/en/docs/claude-code/quickstart"><strong>Claude Code Quickstart</strong><span>Primeira sessao e comandos iniciais.</span></a>
+            <a class="course" href="https://code.claude.com/docs/en/common-workflows"><strong>Claude Code Workflows</strong><span>Plan Mode, exploração de projeto, documentação, testes e PRs.</span></a>
+            <a class="course" href="https://code.claude.com/docs/en/ide-integrations"><strong>Claude Code no VS Code</strong><span>Como usar painel visual, terminal integrado e contexto do editor.</span></a>
           </div>
           <div class="note" style="margin-top:14px"><b>Regra:</b> nenhuma instalacao, extensao, conector ou ferramenta paga deve ser contratada por conta propria. Novas ferramentas seguem o fluxo de requisicao e aprovacao da empresa.</div>
         </div>
@@ -252,48 +254,48 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
       </div>
       <div class="agenda">
         <article class="day">
-          <div class="day-label"><b>01</b><span>fundacao</span></div>
+          <div class="day-label"><b>01</b><span>base</span></div>
           <div class="day-body">
-            <h3>Mentalidade AI First, Citizen Developer e escolha do desafio</h3>
+            <h3>Fundamentos do Claude, Claude Code, VS Code e primeira pasta</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>O que e ser AI First na pratica.</li><li>Como uma dor vira automacao.</li><li>Como avaliar impacto, risco e viabilidade.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Cada pessoa apresenta 1 a 3 dores da area.</li><li>Priorizacao por impacto, frequencia e dados disponiveis.</li><li>Definicao do problema do MVP.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Ficha do desafio escolhida.</li><li>Objetivo do MVP em uma frase.</li><li>Criterio de sucesso definido.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Diferença entre Claude App, chat, Claude Code CLI e extensão no VS Code.</li><li>Como abrir terminal integrado, navegar em pasta e usar comandos básicos.</li><li>Como estruturar um projeto para a IA entender contexto, decisões e dados.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Criar a pasta ai-first-lab no VS Code.</li><li>Criar README, docs/DESAFIO.md, docs/PROMPTS.md e docs/DECISOES.md.</li><li>Rodar Claude Code dentro da pasta e pedir explicação da estrutura.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Ambiente validado no VS Code.</li><li>Primeira pasta estruturada.</li><li>Primeiro registro de decisão feito com apoio do Claude.</li></ul></div>
+            </div>
+            <span class="tag">Base: projeto pronto para operar</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>02</b><span>operar</span></div>
+          <div class="day-body">
+            <h3>Uso real do Claude: Plan Mode, prompt engineering e coworker</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como pedir plano antes de editar arquivos.</li><li>Como escrever prompts com contexto, objetivo, restrições e formato.</li><li>Como revisar diff, comandos, arquivos alterados e próximos passos.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Usar Claude App/chat para pensar a tarefa.</li><li>Usar Claude Code no VS Code para planejar e executar uma mudança pequena.</li><li>Comparar um prompt ruim com um prompt bom.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Biblioteca inicial de prompts em docs/PROMPTS.md.</li><li>Fluxo Plan → Execute → Review praticado.</li><li>Checklist pessoal de revisão humana.</li></ul></div>
+            </div>
+            <span class="tag">Operação: Claude como coworker</span>
+          </div>
+        </article>
+
+        <article class="day">
+          <div class="day-label"><b>03</b><span>desafio</span></div>
+          <div class="day-body">
+            <h3>Transformar dores das áreas em escopo de MVP</h3>
+            <div class="day-cols">
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como avaliar se um desafio cabe em 8 semanas.</li><li>Como mapear entrada, saída, regra, exceção e dono da validação.</li><li>Como classificar risco antes de automatizar.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Cada pessoa apresenta 1 a 3 dores da área.</li><li>O grupo prioriza por impacto, frequência, dados e segurança.</li><li>Claude ajuda a transformar a dor em escopo inicial.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>docs/DESAFIO.md preenchido.</li><li>Objetivo do MVP em uma frase.</li><li>Critérios de sucesso definidos.</li></ul></div>
             </div>
             <span class="tag">MVP: problema validado</span>
           </div>
         </article>
 
         <article class="day">
-          <div class="day-label"><b>02</b><span>logica</span></div>
-          <div class="day-body">
-            <h3>Pensamento computacional, fluxo de trabalho e decomposicao</h3>
-            <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como quebrar uma rotina em etapas.</li><li>Entradas, saidas, regras e excecoes.</li><li>Fluxograma simples para orientar a IA.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Mapear o processo atual da area.</li><li>Identificar gargalos e decisoes humanas.</li><li>Escrever o primeiro prompt de arquitetura.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Fluxo da solucao desenhado.</li><li>Lista de dados/sistemas envolvidos.</li><li>Backlog inicial do MVP.</li></ul></div>
-            </div>
-            <span class="tag">MVP: fluxo desenhado</span>
-          </div>
-        </article>
-
-        <article class="day">
-          <div class="day-label"><b>03</b><span>claude</span></div>
-          <div class="day-body">
-            <h3>Claude Code: projeto, contexto, arquivos e iteracao segura</h3>
-            <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como abrir uma sessao e explicar o projeto.</li><li>Como pedir plano antes da execucao.</li><li>Como revisar alteracoes, comandos e arquivos.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Criar a pasta do MVP.</li><li>Gerar README inicial e plano de implementacao.</li><li>Executar primeira automacao local simples.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Projeto local iniciado.</li><li>Primeira automacao funcionando.</li><li>Registro do que a IA alterou.</li></ul></div>
-            </div>
-            <span class="tag">MVP: primeiro prototipo local</span>
-          </div>
-        </article>
-
-        <article class="day">
           <div class="day-label"><b>04</b><span>dados</span></div>
           <div class="day-body">
-            <h3>Dados, planilhas, arquivos e tratamento seguro</h3>
+            <h3>Dados, planilhas, arquivos e automações com Python</h3>
             <div class="day-cols">
               <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como ler CSV, Excel, TXT e pastas de arquivos.</li><li>Como limpar dados e padronizar colunas.</li><li>Como usar dados ficticios, mascarados ou minimizados.</li></ul></div>
               <div class="day-col"><strong>Pratica do dia</strong><ul><li>Montar uma base de teste do desafio.</li><li>Criar pipeline simples de entrada e saida.</li><li>Validar resultado com casos reais anonimizados.</li></ul></div>
@@ -306,39 +308,39 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
         <article class="day">
           <div class="day-label"><b>05</b><span>integrar</span></div>
           <div class="day-body">
-            <h3>Integracoes, APIs, ferramentas internas e automacao</h3>
+            <h3>Primeira solução útil: app simples com Next.js</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>O que e API, token, permissao e limite de acesso.</li><li>Quando usar planilha, arquivo, endpoint ou conector.</li><li>Como registrar nova ferramenta quando necessario.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Conectar o MVP a uma fonte aprovada.</li><li>Automatizar uma etapa manual da rotina.</li><li>Registrar riscos, acessos e dependencias.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Integracao controlada funcionando.</li><li>Limites de permissao definidos.</li><li>Plano para remover acessos se o teste parar.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como criar uma tela simples em Next.js com ajuda do Claude.</li><li>Como separar input, processamento e resultado.</li><li>Como não transformar o app em caixa-preta.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Criar ou adaptar uma tela para o desafio.</li><li>Exibir resultado de uma planilha, arquivo ou script.</li><li>Revisar o código criado pelo Claude.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Primeira interface funcional.</li><li>Fluxo manual substituído por tela ou comando simples.</li><li>README atualizado com como rodar.</li></ul></div>
             </div>
-            <span class="tag">MVP: automacao integrada</span>
+            <span class="tag">MVP: primeira tela útil</span>
           </div>
         </article>
 
         <article class="day">
-          <div class="day-label"><b>06</b><span>build</span></div>
+          <div class="day-label"><b>06</b><span>integrar</span></div>
           <div class="day-body">
-            <h3>Construcao do MVP: interface, execucao e testes simples</h3>
+            <h3>Integrações, APIs e ferramentas aprovadas</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como transformar prototipo em ferramenta utilizavel.</li><li>Como criar comandos, relatorios ou telas simples.</li><li>Como testar casos felizes e erros comuns.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Fechar o fluxo principal do MVP.</li><li>Criar uma forma simples de uso pelo time.</li><li>Testar com dados de exemplo.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>MVP beta rodando de ponta a ponta.</li><li>Checklist de teste preenchido.</li><li>Lista de pendencias para polimento.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>O que é API, token, permissão e limite de acesso.</li><li>Quando usar planilha, arquivo, endpoint ou conector.</li><li>Como registrar nova ferramenta quando necessário.</li></ul></div>
+              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Conectar o MVP a uma fonte aprovada.</li><li>Automatizar uma etapa manual da rotina.</li><li>Registrar riscos, acessos e dependências.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Integração controlada funcionando.</li><li>Limites de permissão definidos.</li><li>Plano para remover acessos se o teste parar.</li></ul></div>
             </div>
-            <span class="tag">MVP: beta funcional</span>
+            <span class="tag">MVP: automação integrada</span>
           </div>
         </article>
 
         <article class="day">
           <div class="day-label"><b>07</b><span>seguro</span></div>
           <div class="day-body">
-            <h3>Refino, governanca, seguranca, documentacao e compliance</h3>
+            <h3>Fechar MVP, testes, documentação e governança</h3>
             <div class="day-cols">
               <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como revisar segredos, dados e permissao.</li><li>Como documentar uso, limites e responsavel.</li><li>Como preparar uma solucao para avaliacao interna.</li></ul></div>
               <div class="day-col"><strong>Pratica do dia</strong><ul><li>Revisar riscos do MVP.</li><li>Remover segredos, dados desnecessarios e acessos amplos.</li><li>Completar documentacao minima.</li></ul></div>
               <div class="day-col"><strong>Entrega</strong><ul><li>MVP revisado com checklist de seguranca.</li><li>README de uso e manutencao.</li><li>Plano de continuidade ou descarte.</li></ul></div>
             </div>
-            <span class="tag">MVP: pronto para demo interna</span>
+            <span class="tag">MVP: beta revisado</span>
           </div>
         </article>
 
