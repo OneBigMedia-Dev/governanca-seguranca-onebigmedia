@@ -10,6 +10,7 @@ type SaveState = "idle" | "saving" | "saved" | "error";
 
 type ProgressResponse = {
   checkedIds?: string[];
+  reason?: string;
 };
 
 function toCheckedSet(ids: unknown): Set<string> {
@@ -24,6 +25,7 @@ export function ChecklistClient() {
   const [checkedIds, setCheckedIds] = useState<Set<string>>(new Set());
   const [loadState, setLoadState] = useState<LoadState>("loading");
   const [saveState, setSaveState] = useState<SaveState>("idle");
+  const [syncMessage, setSyncMessage] = useState("Carregando progresso...");
   const saveSequenceRef = useRef(0);
 
   useEffect(() => {
@@ -34,7 +36,8 @@ export function ChecklistClient() {
         const response = await fetch("/api/checklist-progress", { cache: "no-store" });
 
         if (!response.ok) {
-          throw new Error("progress load failed");
+          const errorData = (await response.json().catch(() => ({}))) as ProgressResponse;
+          throw new Error(errorData.reason ?? `status_${response.status}`);
         }
 
         const data = (await response.json()) as ProgressResponse;
@@ -43,11 +46,17 @@ export function ChecklistClient() {
           setCheckedIds(toCheckedSet(data.checkedIds));
           setLoadState("ready");
           setSaveState("saved");
+          setSyncMessage("Salvo no Supabase");
         }
-      } catch {
+      } catch (error) {
         if (isMounted) {
           setLoadState("error");
           setSaveState("error");
+          setSyncMessage(
+            error instanceof Error
+              ? `Não foi possível sincronizar: ${error.message}`
+              : "Não foi possível sincronizar"
+          );
         }
       }
     }
@@ -69,6 +78,7 @@ export function ChecklistClient() {
     const sequence = saveSequenceRef.current + 1;
     saveSequenceRef.current = sequence;
     setSaveState("saving");
+    setSyncMessage("Salvando...");
 
     try {
       const response = await fetch("/api/checklist-progress", {
@@ -82,15 +92,22 @@ export function ChecklistClient() {
       });
 
       if (!response.ok) {
-        throw new Error("progress save failed");
+        const errorData = (await response.json().catch(() => ({}))) as ProgressResponse;
+        throw new Error(errorData.reason ?? `status_${response.status}`);
       }
 
       if (saveSequenceRef.current === sequence) {
         setSaveState("saved");
+        setSyncMessage("Salvo no Supabase");
       }
-    } catch {
+    } catch (error) {
       if (saveSequenceRef.current === sequence) {
         setSaveState("error");
+        setSyncMessage(
+          error instanceof Error
+            ? `Não foi possível sincronizar: ${error.message}`
+            : "Não foi possível sincronizar"
+        );
       }
     }
   }
@@ -123,15 +140,6 @@ export function ChecklistClient() {
     setCheckedIds(next);
     void persistCheckedIds(next);
   }
-
-  const statusLabel =
-    loadState === "loading"
-      ? "Carregando progresso..."
-      : saveState === "saving"
-        ? "Salvando..."
-        : saveState === "saved"
-          ? "Salvo no Supabase"
-          : "Não foi possível sincronizar";
 
   return (
     <>
@@ -166,7 +174,7 @@ export function ChecklistClient() {
           Limpar checklist
         </button>
         <span className={saveState === "error" ? "sync-status error" : "sync-status"} aria-live="polite">
-          {statusLabel}
+          {syncMessage}
         </span>
       </div>
 

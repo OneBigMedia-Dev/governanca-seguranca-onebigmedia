@@ -9,6 +9,14 @@ type ProgressRow = {
 
 const allowedChecklistIds = new Set(checklistItemIds);
 
+function safeErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  return "unknown";
+}
+
 function jsonResponse(body: Record<string, unknown>, status = 200): Response {
   return Response.json(body, {
     status,
@@ -51,7 +59,15 @@ export async function GET() {
     });
 
     if (!response.ok) {
-      return jsonResponse({ error: "progress_load_failed" }, 502);
+      const responseText = await response.text();
+      console.error("checklist_progress_load_supabase_error", {
+        status: response.status,
+        bodyLength: responseText.length
+      });
+      return jsonResponse(
+        { error: "progress_load_failed", reason: "supabase_response", status: response.status },
+        502
+      );
     }
 
     const rows = (await response.json()) as ProgressRow[];
@@ -61,8 +77,11 @@ export async function GET() {
       checkedIds: normalizeCheckedIds(row?.checked_ids ?? []) ?? [],
       updatedAt: row?.updated_at ?? null
     });
-  } catch {
-    return jsonResponse({ error: "progress_load_failed" }, 500);
+  } catch (error) {
+    console.error("checklist_progress_load_exception", {
+      message: safeErrorMessage(error)
+    });
+    return jsonResponse({ error: "progress_load_failed", reason: "exception" }, 500);
   }
 }
 
@@ -106,7 +125,15 @@ export async function PUT(request: Request) {
     });
 
     if (!response.ok) {
-      return jsonResponse({ error: "progress_save_failed" }, 502);
+      const responseText = await response.text();
+      console.error("checklist_progress_save_supabase_error", {
+        status: response.status,
+        bodyLength: responseText.length
+      });
+      return jsonResponse(
+        { error: "progress_save_failed", reason: "supabase_response", status: response.status },
+        502
+      );
     }
 
     const rows = (await response.json()) as ProgressRow[];
@@ -115,7 +142,10 @@ export async function PUT(request: Request) {
       checkedIds,
       updatedAt: rows[0]?.updated_at ?? null
     });
-  } catch {
-    return jsonResponse({ error: "progress_save_failed" }, 500);
+  } catch (error) {
+    console.error("checklist_progress_save_exception", {
+      message: safeErrorMessage(error)
+    });
+    return jsonResponse({ error: "progress_save_failed", reason: "exception" }, 500);
   }
 }
