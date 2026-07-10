@@ -11,9 +11,15 @@ export default async function ChecklistPage() {
       <div className="page-title">
         <div>
           <p className="muted">Preparação individual</p>
-          <h1>Check List Ai First Pré-Curso</h1>
+          <h1>Check List AI First Pré-Curso</h1>
         </div>
       </div>
+      <section className="intro-band">
+        <p>
+          Marque tudo que já foi feito para acompanhar seu progresso no pré-curso.
+          Cada tarefa marcada fica registrada e pode ser retomada depois do logout.
+        </p>
+      </section>
       <ChecklistClient />
     </AppChrome>
   );

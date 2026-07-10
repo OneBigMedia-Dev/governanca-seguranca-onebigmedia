@@ -46,7 +46,7 @@ export function ChecklistClient() {
           setCheckedIds(toCheckedSet(data.checkedIds));
           setLoadState("ready");
           setSaveState("saved");
-          setSyncMessage("Salvo no Supabase");
+          setSyncMessage("Progresso carregado.");
         }
       } catch (error) {
         if (isMounted) {
@@ -74,7 +74,7 @@ export function ChecklistClient() {
   const progress = total === 0 ? 0 : Math.round((completed / total) * 100);
   const isReady = loadState === "ready";
 
-  async function persistCheckedIds(nextCheckedIds: Set<string>) {
+  async function persistCheckedIds(nextCheckedIds: Set<string>, successMessage: string) {
     const sequence = saveSequenceRef.current + 1;
     saveSequenceRef.current = sequence;
     setSaveState("saving");
@@ -98,7 +98,7 @@ export function ChecklistClient() {
 
       if (saveSequenceRef.current === sequence) {
         setSaveState("saved");
-        setSyncMessage("Salvo no Supabase");
+        setSyncMessage(successMessage);
       }
     } catch (error) {
       if (saveSequenceRef.current === sequence) {
@@ -126,7 +126,7 @@ export function ChecklistClient() {
         next.add(id);
       }
 
-      void persistCheckedIds(next);
+      void persistCheckedIds(next, next.has(id) ? "Parabéns! Tarefa registrada!" : "Tarefa registrada!");
       return next;
     });
   }
@@ -138,7 +138,7 @@ export function ChecklistClient() {
 
     const next = new Set<string>();
     setCheckedIds(next);
-    void persistCheckedIds(next);
+    void persistCheckedIds(next, "Checklist limpo.");
   }
 
   return (
@@ -185,6 +185,21 @@ export function ChecklistClient() {
               <h2>{section.title}</h2>
               <span className="deadline-pill">{section.deadline}</span>
             </div>
+            <p className="section-instructions">
+              {section.description}{" "}
+              {section.links.map((link, index) => (
+                <a
+                  className="inline-link"
+                  href={link.href}
+                  key={link.href}
+                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                >
+                  {index === 0 ? "" : " "}
+                  {link.label}
+                </a>
+              ))}
+            </p>
             <div className="checks-grid">
               {section.items.map((item) => {
                 const isDone = checkedIds.has(item.id);

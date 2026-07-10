@@ -5,7 +5,7 @@ export function SignInWithGoogleButton() {
     <form
       action={async () => {
         "use server";
-        await signIn("google", { redirectTo: "/checklist" });
+        await signIn("google", { redirectTo: "/orientacoes" });
       }}
     >
       <button className="button" type="submit">
@@ -20,7 +20,7 @@ export function SignOutButton() {
     <form
       action={async () => {
         "use server";
-        await signOut({ redirectTo: "/login" });
+        await signOut({ redirectTo: "/programa-ai-first" });
       }}
     >
       <button className="button ghost" type="submit">

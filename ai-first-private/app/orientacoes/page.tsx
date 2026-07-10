@@ -19,8 +19,8 @@ export default async function OrientacoesPage() {
       <section className="intro-band">
         <p>
           Depois do login, cada participante deve concluir a preparação individual antes das
-          aulas práticas: instalar as ferramentas, finalizar os cursos obrigatórios e registrar
-          a transcrição do projeto que será trabalhado durante o programa.
+          aulas práticas: instalar as ferramentas, finalizar os cursos obrigatórios e mapear
+          uma dor real da área que será trabalhada durante o programa.
         </p>
       </section>
 
@@ -37,7 +37,7 @@ export default async function OrientacoesPage() {
         </article>
         <article className="info-card">
           <span className="deadline-pill">Até 23/07/2026</span>
-          <h2>Transcrição do projeto</h2>
+          <h2>Mapeamento de uma dor da área</h2>
           <p>Registre contexto, processo atual, dor, impacto esperado, dados envolvidos e limites de segurança.</p>
         </article>
       </div>
@@ -48,7 +48,7 @@ export default async function OrientacoesPage() {
           <li>Baixe os materiais de instalação e ferramentas.</li>
           <li>Instale as ferramentas e marque cada item no checklist.</li>
           <li>Conclua os cursos obrigatórios e registre o progresso.</li>
-          <li>Prepare a transcrição do projeto antes das aulas de escopo.</li>
+          <li>Mapeie uma dor da área antes das aulas de escopo.</li>
           <li>Consulte o cronograma para acompanhar o foco de cada semana.</li>
         </ol>
       </section>

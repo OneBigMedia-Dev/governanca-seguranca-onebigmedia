@@ -150,16 +150,6 @@ h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.025em}
 .risk{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);padding:14px}
 .risk strong{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;margin-bottom:6px}
 .risk.low strong{color:var(--green)}.risk.mid strong{color:var(--amber)}.risk.high strong{color:var(--red)}
-.check-wrap{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px}
-.progress{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:12px}
-.progress strong{font-family:var(--mono);color:var(--amber)}
-.bar{height:8px;border-radius:999px;background:#0a0c12;overflow:hidden}
-.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber),#ffd06d);transition:width .25s ease}
-.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
-.ci-item{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);color:var(--muted);cursor:pointer;padding:12px 13px;font-size:14px}
-.ci-item.done{border-color:rgba(95,208,138,.45);color:var(--text);background:rgba(95,208,138,.1)}
-.done-msg{display:none;margin-top:12px;color:var(--green);font-family:var(--mono);font-size:12px}
-.done-msg.show{display:block}
 .faq{display:grid;gap:10px}
 .qa{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
 .qa button{width:100%;border:0;background:transparent;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;gap:16px;text-align:left;font-weight:700;padding:16px 18px}
@@ -205,7 +195,7 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
 @media(max-width:720px){
   .nav-inner{height:auto;align-items:flex-start;padding:14px 0;flex-direction:column}
   .links{gap:12px}
-  .stats,.grid-3,.course-list,.fields,.refs,.checks,.risk-grid{grid-template-columns:1fr}
+  .stats,.grid-3,.course-list,.fields,.refs,.risk-grid{grid-template-columns:1fr}
   .day{grid-template-columns:74px 1fr}
   .day-label b{font-size:22px}
 }
@@ -223,8 +213,7 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
       <a href="#agenda">Cronograma</a>
       <a href="#governanca">Governança</a>
       <a href="#desafios">Desafios</a>
-      <a href="#checklist">Checklist</a>
-      <a class="cta" href="#cursos">Cursos</a>
+      <a class="cta" href="/login">Entrar</a>
     </div>
   </div>
 </nav>
@@ -238,7 +227,8 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
           <h1>Programa <span>AI First</span> para formar Citizen Developers.</h1>
           <p class="lead">Um material único para preparar ambiente, alinhar governança e conduzir um ciclo executivo de 3 meses com IA. Cada participante entra com uma dor real da área e sai com um MVP funcional, validado e documentado.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#instalacao">Começar instalação</a>
+            <a class="btn btn-primary" href="/login">Entrar na área privada</a>
+            <a class="btn btn-secondary" href="#instalacao">Começar instalação</a>
             <a class="btn btn-secondary" href="#agenda">Ver cronograma</a>
           </div>
         </div>
@@ -595,40 +585,6 @@ claude doctor</pre></div></div></div>
     </div>
   </section>
 
-  <section id="checklist">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">~/ai-first/<b>checklist</b> --instalação</div>
-          <h2>Checklist final antes da Aula 1.</h2>
-        </div>
-        <p>Marque os requisitos do pré-curso: cursos obrigatórios, ferramentas instaladas e processo real mapeado com gravação/transcrição. Esta lista fica apenas na tela, para controle individual.</p>
-      </div>
-      <div class="check-wrap">
-        <div class="progress"><span>Progresso do pré-curso</span><strong><span id="pct">0</span>%</strong></div>
-        <div class="bar"><span id="barfill"></span></div>
-        <div class="checks" id="checks">
-          <div class="ci-item">Concluí Claude 101</div>
-          <div class="ci-item">Concluí Claude Code 101</div>
-          <div class="ci-item">Concluí Claude Platform 101</div>
-          <div class="ci-item">Instalei VS Code e validei com code --version</div>
-          <div class="ci-item">Instalei Git e configurei user.name e user.email</div>
-          <div class="ci-item">Instalei Node.js LTS e validei node, npm e create-next-app</div>
-          <div class="ci-item">Instalei Python e validei python/pip</div>
-          <div class="ci-item">Instalei Claude Code CLI e rodei claude --version</div>
-          <div class="ci-item">Rodei claude doctor sem erro bloqueante</div>
-          <div class="ci-item">Instalei a extensão Claude Code no VS Code</div>
-          <div class="ci-item">Sei que as credenciais especiais serão enviadas antes da Aula 01</div>
-          <div class="ci-item">Rodei o check final completo da instalação</div>
-          <div class="ci-item">Gravei uma reunião sobre um processo real da minha área</div>
-          <div class="ci-item">Gerei ou salvei a transcrição da reunião</div>
-          <div class="ci-item">Mapeei etapas, responsáveis, inputs, outputs, exceções e dores do processo</div>
-        </div>
-        <div class="done-msg" id="donemsg">Pré-curso pronto para a Aula 1.</div>
-      </div>
-    </div>
-  </section>
-
   <section id="faq">
     <div class="wrap">
       <div class="section-head">
@@ -731,26 +687,6 @@ claude doctor</pre></div></div></div>
       });
     });
   });
-
-  var checks = document.querySelectorAll('#checks .ci-item');
-  var pct = document.getElementById('pct');
-  var fill = document.getElementById('barfill');
-  var done = document.getElementById('donemsg');
-  function updateChecks(){
-    var total = checks.length || 1;
-    var marked = document.querySelectorAll('#checks .ci-item.done').length;
-    var value = Math.round(marked / total * 100);
-    pct.textContent = value;
-    fill.style.width = value + '%';
-    done.classList.toggle('show', value === 100);
-  }
-  checks.forEach(function(item){
-    item.addEventListener('click', function(){
-      item.classList.toggle('done');
-      updateChecks();
-    });
-  });
-  updateChecks();
 
   document.querySelectorAll('.qa button').forEach(function(button){
     button.addEventListener('click', function(){
