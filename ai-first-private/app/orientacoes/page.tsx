@@ -6,17 +6,19 @@ import { requireAllowedSession } from "@/lib/session";
 export default async function OrientacoesPage() {
   const session = await requireAllowedSession();
   const email = session.user?.email ?? "conta autorizada";
+  const displayName = session.user?.name?.trim() || email.split("@")[0];
 
   return (
     <AppChrome email={email}>
       <div className="page-title">
         <div>
           <p className="muted">Pré-curso AI First</p>
-          <h1>O que fazer agora</h1>
+          <h1>Olá, {displayName}. Bem-vindo ao programa AI First</h1>
         </div>
       </div>
 
       <section className="intro-band">
+        <h2>O que fazer agora</h2>
         <p>
           Depois do login, cada participante deve concluir a preparação individual antes das
           aulas práticas: instalar as ferramentas, finalizar os cursos obrigatórios e mapear
@@ -28,12 +30,30 @@ export default async function OrientacoesPage() {
         <article className="info-card">
           <span className="deadline-pill">Até 16/07/2026</span>
           <h2>Ferramentas</h2>
-          <p>Instale e valide VS Code, Git, Node.js, Python, Claude Code CLI e extensão no VS Code.</p>
+          <p>
+            Instale e valide VS Code, Git, Node.js, Python, Claude Code CLI e extensão no VS Code.
+            Use a página de{" "}
+            <Link className="inline-link" href="/instalacao">
+              instalação passo a passo
+            </Link>
+            .
+          </p>
         </article>
         <article className="info-card">
           <span className="deadline-pill">Até 23/07/2026</span>
           <h2>Cursos</h2>
-          <p>Conclua Claude 101, Claude Code 101, Claude Platform 101 e leia as regras de governança.</p>
+          <p>
+            Conclua Claude 101, Claude Code 101 e Claude Platform 101. Também recomendamos ler as{" "}
+            <a
+              className="inline-link"
+              href="https://onebigmedia-dev.github.io/governanca-seguranca-onebigmedia/#inicio"
+              rel="noreferrer"
+              target="_blank"
+            >
+              regras de governança
+            </a>
+            .
+          </p>
         </article>
         <article className="info-card">
           <span className="deadline-pill">Até 23/07/2026</span>
@@ -56,6 +76,9 @@ export default async function OrientacoesPage() {
       <div className="quick-links">
         <Link className="button" href="/checklist">
           Abrir checklist
+        </Link>
+        <Link className="button secondary" href="/instalacao">
+          Instalação passo a passo
         </Link>
         <Link className="button secondary" href="/materiais">
           Materiais disponíveis

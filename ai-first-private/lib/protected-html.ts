@@ -30,6 +30,7 @@ function rewriteHtml(html: string): string {
     '<strong style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#D896FF">Área privada AI First</strong>',
     '<span style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">',
     '<a style="color:#f4f2ec;text-decoration:none" href="/orientacoes">Orientações</a>',
+    '<a style="color:#a4a6b5;text-decoration:none" href="/instalacao">Instalação</a>',
     '<a style="color:#a4a6b5;text-decoration:none" href="/checklist">Checklist</a>',
     '<a style="color:#a4a6b5;text-decoration:none" href="/materiais">Materiais</a>',
     '<a style="color:#a4a6b5;text-decoration:none" href="/cronograma">Cronograma</a>',
@@ -59,7 +60,7 @@ function rewritePublicProgramHtml(html: string, email: string | null): string {
         '<a style="color:#a4a6b5;text-decoration:none" href="/checklist">Checklist</a>',
         '<a style="color:#a4a6b5;text-decoration:none" href="/logout">Sair</a>'
       ].join("")
-    : '<a style="display:inline-flex;align-items:center;min-height:34px;padding:0 12px;border-radius:8px;background:#D896FF;color:#090a0f;text-decoration:none;font-weight:800" href="/login">Entrar com Google</a>';
+    : "";
 
   const publicNav = [
     '<div style="position:sticky;top:0;z-index:9999;background:#08090d;border-bottom:1px solid rgba(255,255,255,.14);padding:10px 16px;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;color:#f4f2ec">',

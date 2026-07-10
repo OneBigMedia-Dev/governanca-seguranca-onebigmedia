@@ -22,7 +22,7 @@ export const checklistSections: ChecklistSection[] = [
       "Instale e valide cada ferramenta. Se tiver dúvida, consulte os materiais disponíveis ou a página de instalação. Se ainda houver erro, acione o time de P&D.",
     links: [
       { href: "/materiais", label: "Materiais" },
-      { href: "/programa-ai-first#instalacao", label: "Página de instalação" },
+      { href: "/instalacao", label: "Página de instalação" },
       { href: "/duvidas", label: "Dúvidas" }
     ],
     items: [
@@ -38,16 +38,19 @@ export const checklistSections: ChecklistSection[] = [
     title: "Cursos obrigatórios",
     deadline: "Prazo: quinta-feira, 23/07/2026",
     description:
-      "Faça login no site da Anthropic com a conta da empresa. Use a tradução do navegador para português quando precisar e ative legendas nos vídeos. Em caso de dúvida, acione o time de P&D.",
+      "Faça login no site da Anthropic com a conta da empresa. Use a tradução do navegador para português quando precisar e ative legendas nos vídeos. Recomendamos também ler as regras de governança e segurança da OneBigMedia. Em caso de dúvida, acione o time de P&D.",
     links: [
       { href: "https://anthropic.skilljar.com/", label: "Anthropic Academy" },
+      {
+        href: "https://onebigmedia-dev.github.io/governanca-seguranca-onebigmedia/#inicio",
+        label: "Regras de segurança"
+      },
       { href: "/duvidas", label: "Dúvidas" }
     ],
     items: [
       { id: "claude-101", label: "Concluí Claude 101" },
       { id: "claude-code-101", label: "Concluí Claude Code 101" },
-      { id: "platform-101", label: "Concluí Claude Platform 101" },
-      { id: "governance-read", label: "Li as regras de governança e segurança" }
+      { id: "platform-101", label: "Concluí Claude Platform 101" }
     ]
   },
   {

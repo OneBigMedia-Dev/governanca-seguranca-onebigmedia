@@ -28,6 +28,9 @@ export function AppChrome({ email, children }: AppChromeProps) {
             <Link className="text-link" href="/orientacoes">
               Orientações
             </Link>
+            <Link className="text-link" href="/instalacao">
+              Instalação
+            </Link>
             <Link className="text-link" href="/checklist">
               Checklist
             </Link>
