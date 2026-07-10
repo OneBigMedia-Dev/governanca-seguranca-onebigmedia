@@ -134,9 +134,6 @@ export function ChecklistClient() {
         <a className="button secondary" href="/programa-ai-first">
           Abrir programa
         </a>
-        <a className="button secondary" href="/pre-curso-ai-first">
-          Abrir pré-curso
-        </a>
         <button className="button ghost" type="button" onClick={resetChecklist}>
           Limpar checklist
         </button>
