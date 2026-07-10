@@ -6,7 +6,7 @@ export default async function HomePage() {
   const session = await getAllowedSession();
 
   if (session) {
-    redirect("/checklist");
+    redirect("/orientacoes");
   }
 
   redirect("/login");

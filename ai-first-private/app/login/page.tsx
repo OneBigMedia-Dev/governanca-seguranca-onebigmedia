@@ -13,7 +13,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   const session = await getAllowedSession();
 
   if (session) {
-    redirect("/checklist");
+    redirect("/orientacoes");
   }
 
   const params = await searchParams;

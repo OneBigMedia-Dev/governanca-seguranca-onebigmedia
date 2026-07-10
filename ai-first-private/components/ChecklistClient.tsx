@@ -1,109 +1,137 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import type { CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-type ChecklistItem = {
-  id: string;
-  label: string;
+import { checklistSections } from "@/lib/checklist-data";
+
+type LoadState = "loading" | "ready" | "error";
+type SaveState = "idle" | "saving" | "saved" | "error";
+
+type ProgressResponse = {
+  checkedIds?: string[];
 };
 
-type ChecklistSection = {
-  title: string;
-  items: ChecklistItem[];
-};
-
-const STORAGE_KEY = "onebigmedia-ai-first-checklist-v1";
-
-const sections: ChecklistSection[] = [
-  {
-    title: "Instalação",
-    items: [
-      { id: "vscode", label: "Instalei VS Code e validei o terminal integrado" },
-      { id: "git", label: "Instalei Git e configurei nome e e-mail" },
-      { id: "node", label: "Instalei Node.js LTS e validei npm/create-next-app" },
-      { id: "python", label: "Instalei Python e validei pip" },
-      { id: "claude-cli", label: "Instalei Claude Code CLI e rodei claude doctor" },
-      { id: "claude-vscode", label: "Instalei a extensão Claude Code no VS Code" }
-    ]
-  },
-  {
-    title: "Cursos e fundamentos",
-    items: [
-      { id: "claude-101", label: "Concluí Claude 101" },
-      { id: "claude-code-101", label: "Concluí Claude Code 101" },
-      { id: "platform-101", label: "Concluí Claude Platform 101" },
-      { id: "governance-read", label: "Li as regras de governança e segurança" }
-    ]
-  },
-  {
-    title: "Mapeamento do processo",
-    items: [
-      { id: "area-owner", label: "Defini área, responsável e validador do desafio" },
-      { id: "current-process", label: "Mapeei o processo atual e ferramentas usadas" },
-      { id: "pain", label: "Escrevi a dor principal e o impacto esperado" },
-      { id: "data-sources", label: "Listei dados, arquivos, APIs ou sistemas envolvidos" },
-      { id: "security-limits", label: "Registrei limites de segurança e dados que não podem entrar em prompt" }
-    ]
-  },
-  {
-    title: "Preparação do MVP",
-    items: [
-      { id: "workspace", label: "Criei a pasta OneBigMediaOS (Blueprint)" },
-      { id: "docs", label: "Criei README, DESAFIO, PROMPTS e DECISÕES" },
-      { id: "first-plan", label: "Usei Plan Mode para propor os próximos passos" },
-      { id: "review", label: "Revisei riscos, permissões, hooks, subagents e logs" },
-      { id: "demo-plan", label: "Preparei a narrativa de demo e critérios de continuidade" }
-    ]
-  }
-];
-
-function loadCheckedIds(): Set<string> {
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    const parsed = raw ? (JSON.parse(raw) as unknown) : [];
-    return new Set(Array.isArray(parsed) ? parsed.filter((item) => typeof item === "string") : []);
-  } catch {
+function toCheckedSet(ids: unknown): Set<string> {
+  if (!Array.isArray(ids)) {
     return new Set();
   }
+
+  return new Set(ids.filter((item): item is string => typeof item === "string"));
 }
 
 export function ChecklistClient() {
   const [checkedIds, setCheckedIds] = useState<Set<string>>(new Set());
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [loadState, setLoadState] = useState<LoadState>("loading");
+  const [saveState, setSaveState] = useState<SaveState>("idle");
+  const saveSequenceRef = useRef(0);
 
   useEffect(() => {
-    setCheckedIds(loadCheckedIds());
-    setIsLoaded(true);
-  }, []);
+    let isMounted = true;
 
-  useEffect(() => {
-    if (!isLoaded) {
-      return;
+    async function loadProgress() {
+      try {
+        const response = await fetch("/api/checklist-progress", { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error("progress load failed");
+        }
+
+        const data = (await response.json()) as ProgressResponse;
+
+        if (isMounted) {
+          setCheckedIds(toCheckedSet(data.checkedIds));
+          setLoadState("ready");
+          setSaveState("saved");
+        }
+      } catch {
+        if (isMounted) {
+          setLoadState("error");
+          setSaveState("error");
+        }
+      }
     }
 
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(checkedIds)));
-  }, [checkedIds, isLoaded]);
+    void loadProgress();
 
-  const allItems = useMemo(() => sections.flatMap((section) => section.items), []);
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const allItems = useMemo(() => checklistSections.flatMap((section) => section.items), []);
   const completed = checkedIds.size;
   const total = allItems.length;
   const progress = total === 0 ? 0 : Math.round((completed / total) * 100);
+  const isReady = loadState === "ready";
+
+  async function persistCheckedIds(nextCheckedIds: Set<string>) {
+    const sequence = saveSequenceRef.current + 1;
+    saveSequenceRef.current = sequence;
+    setSaveState("saving");
+
+    try {
+      const response = await fetch("/api/checklist-progress", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          checkedIds: Array.from(nextCheckedIds)
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("progress save failed");
+      }
+
+      if (saveSequenceRef.current === sequence) {
+        setSaveState("saved");
+      }
+    } catch {
+      if (saveSequenceRef.current === sequence) {
+        setSaveState("error");
+      }
+    }
+  }
 
   function toggleItem(id: string) {
+    if (!isReady) {
+      return;
+    }
+
     setCheckedIds((current) => {
       const next = new Set(current);
+
       if (next.has(id)) {
         next.delete(id);
       } else {
         next.add(id);
       }
+
+      void persistCheckedIds(next);
       return next;
     });
   }
 
   function resetChecklist() {
-    setCheckedIds(new Set());
+    if (!isReady) {
+      return;
+    }
+
+    const next = new Set<string>();
+    setCheckedIds(next);
+    void persistCheckedIds(next);
   }
+
+  const statusLabel =
+    loadState === "loading"
+      ? "Carregando progresso..."
+      : saveState === "saving"
+        ? "Salvando..."
+        : saveState === "saved"
+          ? "Salvo no Supabase"
+          : "Não foi possível sincronizar";
 
   return (
     <>
@@ -121,12 +149,12 @@ export function ChecklistClient() {
           <span>itens totais</span>
         </div>
         <div className="summary-item">
-          <strong>{sections.length}</strong>
+          <strong>{checklistSections.length}</strong>
           <span>frentes</span>
         </div>
       </div>
 
-      <div className="progress-bar" style={{ "--progress": `${progress}%` } as React.CSSProperties}>
+      <div className="progress-bar" style={{ "--progress": `${progress}%` } as CSSProperties}>
         <span />
       </div>
 
@@ -134,15 +162,21 @@ export function ChecklistClient() {
         <a className="button secondary" href="/programa-ai-first">
           Abrir programa
         </a>
-        <button className="button ghost" type="button" onClick={resetChecklist}>
+        <button className="button ghost" type="button" onClick={resetChecklist} disabled={!isReady}>
           Limpar checklist
         </button>
+        <span className={saveState === "error" ? "sync-status error" : "sync-status"} aria-live="polite">
+          {statusLabel}
+        </span>
       </div>
 
       <div className="checklist" style={{ marginTop: 28 }}>
-        {sections.map((section) => (
+        {checklistSections.map((section) => (
           <section className="section-band" key={section.title}>
-            <h2>{section.title}</h2>
+            <div className="section-heading">
+              <h2>{section.title}</h2>
+              <span className="deadline-pill">{section.deadline}</span>
+            </div>
             <div className="checks-grid">
               {section.items.map((item) => {
                 const isDone = checkedIds.has(item.id);
@@ -150,6 +184,7 @@ export function ChecklistClient() {
                   <button
                     aria-pressed={isDone}
                     className={isDone ? "check-item done" : "check-item"}
+                    disabled={!isReady}
                     key={item.id}
                     type="button"
                     onClick={() => toggleItem(item.id)}

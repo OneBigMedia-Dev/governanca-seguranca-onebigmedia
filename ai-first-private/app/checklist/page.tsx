@@ -11,7 +11,7 @@ export default async function ChecklistPage() {
       <div className="page-title">
         <div>
           <p className="muted">Preparação individual</p>
-          <h1>Checklist AI First</h1>
+          <h1>Check List Ai First Pré-Curso</h1>
         </div>
       </div>
       <ChecklistClient />

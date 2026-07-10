@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     root: path.join(__dirname)
   },
   outputFileTracingIncludes: {
+    "/api/materials/[slug]": ["./content/materials/*"],
     "/programa-ai-first": ["./content/programa-ai-first.html"],
     "/pre-curso-ai-first": ["./content/pre-curso-ai-first.html"]
   }

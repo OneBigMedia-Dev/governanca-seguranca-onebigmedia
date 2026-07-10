@@ -28,3 +28,17 @@ export async function getAllowedSession() {
 
   return session;
 }
+
+export async function getAllowedSessionEmail() {
+  const session = await auth();
+  const email = session?.user?.email;
+
+  if (!email || !isAllowedEmail(email)) {
+    return null;
+  }
+
+  return {
+    email,
+    name: session.user?.name ?? null
+  };
+}
