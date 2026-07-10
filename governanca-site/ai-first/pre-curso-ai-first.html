@@ -379,10 +379,10 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0 60px;margin-top:20px
       <div class="week reveal"><div class="wk"><b>01</b><span>BASE</span></div><div class="wc"><h3>Fundamentos do Claude, Claude Code e primeira pasta</h3><p>Entender Claude App, chat, Claude Code, terminal, VS Code e criar a pasta estruturada do projeto com README, docs e área de dados.</p><span class="tag">Entrega: projeto base criado no VS Code</span></div></div>
       <div class="week reveal"><div class="wk"><b>02</b><span>OPERAR</span></div><div class="wc"><h3>Uso real: Plan Mode, prompting e revisão</h3><p>Usar Claude como coworker: planejar antes de executar, escrever prompts melhores, revisar diffs, alternar VS Code, CLI, chat e Claude App.</p><span class="tag">Entrega: primeiro fluxo guiado pelo Claude</span></div></div>
       <div class="week reveal"><div class="wk"><b>03</b><span>PROBLEMA</span></div><div class="wc"><h3>Transformar dores das áreas em escopo de MVP</h3><p>Cada pessoa traz um desafio real; vamos separar problema, dados, regra, risco, entrega mínima e critérios de sucesso.</p><span class="tag">Entrega: desafio priorizado e documentado</span></div></div>
-      <div class="week reveal"><div class="wk"><b>04</b><span>DADOS</span></div><div class="wc"><h3>Arquivos, planilhas e automações com Python</h3><p>Ler, limpar e transformar CSV, Excel, TXT e pastas de arquivos com apoio do Claude Code e validação humana.</p><span class="tag">Entrega: pipeline simples de dados</span></div></div>
+      <div class="week reveal"><div class="wk"><b>04</b><span>DADOS</span></div><div class="wc"><h3>Arquivos, planilhas, bancos de dados e Python</h3><p>Ler, limpar e transformar CSV, Excel, TXT, pastas de arquivos e bases de treino. Banco real entra apenas com acesso aprovado, menor privilégio e sem expor credenciais para IA.</p><span class="tag">Entrega: pipeline simples de dados</span></div></div>
       <div class="week reveal"><div class="wk"><b>05</b><span>APP</span></div><div class="wc"><h3>Construir uma interface simples com Next.js</h3><p>Montar uma tela funcional para usar o resultado da automação, sem transformar o curso em aula abstrata de programação.</p><span class="tag">Entrega: primeira tela útil</span></div></div>
-      <div class="week reveal"><div class="wk"><b>06</b><span>INTEGRA</span></div><div class="wc"><h3>Integrações, APIs e ferramentas aprovadas</h3><p>Conectar fontes permitidas, trabalhar com tokens de forma segura e registrar dependências, custos e limites.</p><span class="tag">Entrega: integração controlada</span></div></div>
-      <div class="week reveal"><div class="wk"><b>07</b><span>MVP</span></div><div class="wc"><h3>Fechar MVP, testes e documentação</h3><p>Rodar o fluxo completo, corrigir falhas, documentar operação e preparar a solução para revisão de segurança.</p><span class="tag">Entrega: MVP beta revisado</span></div></div>
+      <div class="week reveal"><div class="wk"><b>06</b><span>INTEGRA</span></div><div class="wc"><h3>Integrações, APIs, hooks e subagents controlados</h3><p>Conectar fontes permitidas, trabalhar com tokens de forma segura e entender quando hooks e subagents podem ajudar sem ampliar risco ou acesso.</p><span class="tag">Entrega: integração controlada</span></div></div>
+      <div class="week reveal"><div class="wk"><b>07</b><span>MVP</span></div><div class="wc"><h3>Fechar MVP, testes, documentação e governança</h3><p>Rodar o fluxo completo, corrigir falhas, revisar segredos, hooks, subagents, permissões, logs e preparar a solução para revisão de segurança.</p><span class="tag">Entrega: MVP beta revisado</span></div></div>
       <div class="week reveal"><div class="wk"><b>08</b><span>DEMO</span></div><div class="wc"><h3>Demo Day e decisão de continuidade</h3><p>Apresentar o MVP, medir impacto, definir próximos passos e decidir se vira produto interno, backlog ou aprendizado.</p><span class="tag">Entrega: demo e plano de continuidade</span></div></div>
     </div>
   </div>
@@ -401,7 +401,8 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0 60px;margin-top:20px
       <div class="tool reveal"><div class="ic" style="color:var(--indigo);background:var(--indigo-soft)">&lt;/&gt;</div><h3>VS Code</h3><div class="role">o editor</div><p>O programa onde seus arquivos e projetos vivem. É a "mesa de trabalho" onde você e o Claude Code atuam lado a lado.</p></div>
       <div class="tool reveal"><div class="ic" style="color:var(--green);background:var(--green-soft)">⎇</div><h3>Git</h3><div class="role">o histórico</div><p>Guarda versões do seu trabalho. Se algo quebrar, você volta no tempo. O Claude Code também usa o Git para se organizar.</p></div>
       <div class="tool reveal"><div class="ic" style="color:var(--amber);background:var(--amber-soft)">▶</div><h3>Node.js</h3><div class="role">o motor</div><p>Um motor que roda várias ferramentas modernas por baixo dos panos, incluindo integrações que vamos usar no curso.</p></div>
-      <div class="tool reveal"><div class="ic" style="color:var(--indigo);background:var(--indigo-soft)">py</div><h3>Python</h3><div class="role">a linguagem</div><p>A linguagem mais usada para automações e dados. Você não precisa ser expert — o Claude Code escreve, você entende e ajusta.</p></div>
+      <div class="tool reveal"><div class="ic" style="color:var(--indigo);background:var(--indigo-soft)">py</div><h3>Python</h3><div class="role">a linguagem</div><p>A linguagem mais usada para automações, planilhas, arquivos e dados. Você não precisa ser expert — o Claude Code escreve, você entende e ajusta.</p></div>
+      <div class="tool reveal"><div class="ic" style="color:var(--green);background:var(--green-soft)">SQL</div><h3>Banco de dados</h3><div class="role">acesso controlado</div><p>Entrará nas aulas de dados com base de treino, SQLite ou acesso corporativo aprovado. Banco real nunca deve expor senha, token ou dado sensível em prompt.</p></div>
       <div class="tool reveal"><div class="ic" style="color:var(--text-mut);background:var(--surface-2)">$_</div><h3>Terminal</h3><div class="role">a porta de entrada</div><p>A telinha preta de comandos. Parece intimidador, mas você vai usar só alguns comandos — e o Claude Code vive aqui dentro.</p></div>
     </div>
   </div>
@@ -445,9 +446,10 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0 60px;margin-top:20px
 <span class="p">></span> npx create-next-app@latest --version</pre></div>
           <div class="verify">Sucesso: os três comandos retornam versão ou ajuda sem erro.</div></div></div>
 
-      <div class="step reveal"><div class="step-head"><div class="step-n">5</div><div><h3>Instalar Python e validar pip</h3><p>Python será usado para automações, planilhas, tratamento de dados e scripts auxiliares. No instalador, marque <b>Add python.exe to PATH</b>.</p></div></div>
+      <div class="step reveal"><div class="step-head"><div class="step-n">5</div><div><h3>Instalar Python e validar pip</h3><p>Python será usado para automações, planilhas, tratamento de dados, bancos de treino e scripts auxiliares. No instalador, marque <b>Add python.exe to PATH</b>.</p></div></div>
         <div class="step-body"><div class="note warn"><b>Não pule:</b> <span>sem PATH, o PowerShell não encontra <span class="mono">python</span> nem <span class="mono">pip</span>.</span></div>
           <div class="note"><b>Baixar:</b> <span><a href="https://www.python.org/downloads/" class="mono" style="color:var(--indigo)">python.org/downloads</a></span></div>
+          <div class="note warn"><b>Banco de dados:</b> <span>no pre-curso, use SQLite, CSV ou base mascarada. Banco real exige aprovacao, menor privilegio, credencial corporativa e nunca deve aparecer em prompt, print, arquivo ou log.</span></div>
           <div class="cmd"><div class="cmd-top"><span class="lbl">PowerShell — verificar Python</span><button class="copy">copiar</button></div><pre><span class="p">></span> python --version
 <span class="p">></span> py --version
 <span class="p">></span> pip --version</pre></div></div></div>
@@ -471,8 +473,8 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0 60px;margin-top:20px
           <div class="verify">Sucesso: o Claude responde, mostra o modelo ativo e consegue ler o diretório atual.</div></div></div>
 
       <div class="step reveal"><div class="step-head"><div class="step-n">9</div><div><h3>Criar a primeira pasta estruturada</h3><p>Esta será a base da Aula 1: uma pasta limpa para praticar planejamento, prompts, documentação e primeiro projeto Next.js.</p></div></div>
-        <div class="step-body"><div class="cmd"><div class="cmd-top"><span class="lbl">PowerShell — estrutura inicial</span><button class="copy">copiar</button></div><pre><span class="p">></span> mkdir ai-first-lab
-<span class="p">></span> cd ai-first-lab
+        <div class="step-body"><div class="cmd"><div class="cmd-top"><span class="lbl">PowerShell — estrutura inicial</span><button class="copy">copiar</button></div><pre><span class="p">></span> mkdir "OneBigMediaOS (Blueprint)"
+<span class="p">></span> cd "OneBigMediaOS (Blueprint)"
 <span class="p">></span> mkdir docs dados scripts app
 <span class="p">></span> ni README.md, docs\DESAFIO.md, docs\PROMPTS.md, docs\DECISOES.md
 <span class="p">></span> code .</pre></div>
@@ -512,8 +514,9 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0 60px;margin-top:20px
 <span class="p">$</span> npm --version
 <span class="p">$</span> npx create-next-app@latest --version</pre></div></div></div>
 
-      <div class="step reveal"><div class="step-head"><div class="step-n">5</div><div><h3>Instalar Python e validar pip</h3><p>Baixe o instalador oficial para macOS. Vamos usar Python em automações, planilhas, arquivos e scripts de apoio.</p></div></div>
+      <div class="step reveal"><div class="step-head"><div class="step-n">5</div><div><h3>Instalar Python e validar pip</h3><p>Baixe o instalador oficial para macOS. Vamos usar Python em automações, planilhas, arquivos, bancos de treino e scripts de apoio.</p></div></div>
         <div class="step-body"><div class="note"><b>Baixar:</b> <span><a href="https://www.python.org/downloads/" class="mono" style="color:var(--indigo)">python.org/downloads</a></span></div>
+          <div class="note warn"><b>Banco de dados:</b> <span>no pre-curso, use SQLite, CSV ou base mascarada. Banco real exige aprovacao, menor privilegio, credencial corporativa e nunca deve aparecer em prompt, print, arquivo ou log.</span></div>
           <div class="cmd"><div class="cmd-top"><span class="lbl">Terminal — verificar Python</span><button class="copy">copiar</button></div><pre><span class="p">$</span> python3 --version
 <span class="p">$</span> python3 -m pip --version</pre></div></div></div>
 
@@ -536,8 +539,8 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0 60px;margin-top:20px
           <div class="verify">Sucesso: o Claude responde, mostra o modelo ativo e consegue ler o diretório atual.</div></div></div>
 
       <div class="step reveal"><div class="step-head"><div class="step-n">9</div><div><h3>Criar a primeira pasta estruturada</h3><p>Esta será a base da Aula 1: uma pasta limpa para praticar planejamento, prompts, documentação e primeiro projeto Next.js.</p></div></div>
-        <div class="step-body"><div class="cmd"><div class="cmd-top"><span class="lbl">Terminal — estrutura inicial</span><button class="copy">copiar</button></div><pre><span class="p">$</span> mkdir -p ai-first-lab/{docs,dados,scripts,app}
-<span class="p">$</span> cd ai-first-lab
+        <div class="step-body"><div class="cmd"><div class="cmd-top"><span class="lbl">Terminal — estrutura inicial</span><button class="copy">copiar</button></div><pre><span class="p">$</span> mkdir -p "OneBigMediaOS (Blueprint)"/{docs,dados,scripts,app}
+<span class="p">$</span> cd "OneBigMediaOS (Blueprint)"
 <span class="p">$</span> touch README.md docs/DESAFIO.md docs/PROMPTS.md docs/DECISOES.md
 <span class="p">$</span> code .</pre></div>
           <div class="cmd"><div class="cmd-top"><span class="lbl">Terminal — projeto Next.js de treino</span><button class="copy">copiar</button></div><pre><span class="p">$</span> npx create-next-app@latest app/primeiro-dashboard</pre></div></div></div>
@@ -725,7 +728,7 @@ footer{border-top:1px solid var(--line-soft);padding:44px 0 60px;margin-top:20px
         <div class="ci-item"><span class="ci-box">✓</span><span class="ci-tx">Instalei Node.js LTS e validei npm/create-next-app</span></div>
         <div class="ci-item"><span class="ci-box">✓</span><span class="ci-tx">Instalei Python e validei pip</span></div>
         <div class="ci-item"><span class="ci-box">✓</span><span class="ci-tx">Instalei Claude Code, fiz login e rodei claude doctor</span></div>
-        <div class="ci-item"><span class="ci-box">✓</span><span class="ci-tx">Criei a pasta ai-first-lab com docs, dados, scripts e app</span></div>
+        <div class="ci-item"><span class="ci-box">✓</span><span class="ci-tx">Criei a pasta OneBigMediaOS (Blueprint) com docs, dados, scripts e app</span></div>
         <div class="ci-item"><span class="ci-box">✓</span><span class="ci-tx">Criei ou testei o primeiro projeto Next.js de treino</span></div>
         <div class="ci-item"><span class="ci-box">✓</span><span class="ci-tx">Li fundamentos, operação do Claude e governança de segurança</span></div>
         <div class="ci-item"><span class="ci-box">✓</span><span class="ci-tx">Fiz os cursos essenciais de Claude Code, VS Code e prompt engineering</span></div>

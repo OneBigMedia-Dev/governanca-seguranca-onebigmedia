@@ -43,8 +43,9 @@ a{color:inherit}
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.01em;text-decoration:none}
-.brand span{color:var(--amber)}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.01em;text-decoration:none}
+.brand img{width:30px;height:30px;object-fit:contain;display:block}
+.brand span{color:var(--text)}
 .links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .links a{font-size:13px;color:var(--muted);text-decoration:none}
 .links a:hover{color:var(--text)}
@@ -56,7 +57,7 @@ a{color:inherit}
 .links a.cta,.links a.cta:hover,.links a.cta:focus,.links a.cta:visited{color:#000}
 .hero{padding:76px 0 44px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:48px;align-items:end}
-.eyebrow{font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:14px}
+.eyebrow{display:none;font-family:var(--mono);font-size:12px;color:var(--dim);margin-bottom:14px}
 .eyebrow b{color:var(--amber)}
 h1,h2,h3{margin:0;line-height:1.08}
 h1{font-size:clamp(40px,6vw,76px);letter-spacing:-.035em;max-width:820px}
@@ -86,6 +87,7 @@ section{padding:58px 0;border-top:1px solid rgba(255,255,255,.07);scroll-margin-
 .section-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(260px,.45fr);gap:30px;margin-bottom:26px}
 h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-.025em}
 .section-head p{margin:0;color:var(--muted)}
+.section-head .eyebrow{display:none}
 .note{
   border:1px solid rgba(216,150,255,.32);
   background:rgba(216,150,255,.1);
@@ -211,14 +213,14 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
 <body>
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">~/ai-first <span>One Big Media</span></a>
+    <a class="brand" href="#top"><img src="../onebigmedia%20logo.png" alt="One Big Media" /><span>One Big Media - IA First</span></a>
     <div class="links">
       <a href="#pre-curso">Como usar</a>
       <a href="#ferramentas">Ferramentas</a>
-      <a href="#instalacao">Instalacao</a>
+      <a href="#instalacao">Instalação</a>
       <a href="#fundamentos">Fundamentos</a>
       <a href="#agenda">Cronograma</a>
-      <a href="#governanca">Governanca</a>
+      <a href="#governanca">Governança</a>
       <a href="#desafios">Desafios</a>
       <a href="#checklist">Checklist</a>
       <a class="cta" href="#cursos">Cursos</a>
@@ -233,17 +235,17 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
         <div>
           <div class="eyebrow">~/programa/<b>ai-first</b> --3-meses --8-aulas --mvp</div>
           <h1>Programa <span>AI First</span> para formar Citizen Developers.</h1>
-          <p class="lead">Um material unico para preparar ambiente, alinhar governanca e conduzir um ciclo executivo de 3 meses com IA. Cada participante entra com uma dor real da area e sai com um MVP funcional, validado e documentado.</p>
+          <p class="lead">Um material único para preparar ambiente, alinhar governança e conduzir um ciclo executivo de 3 meses com IA. Cada participante entra com uma dor real da área e sai com um MVP funcional, validado e documentado.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#instalacao">Comecar instalacao</a>
+            <a class="btn btn-primary" href="#instalacao">Começar instalação</a>
             <a class="btn btn-secondary" href="#agenda">Ver cronograma</a>
           </div>
         </div>
         <aside class="brief" aria-label="Resumo do programa">
-          <div class="brief-row"><strong>Pre-curso</strong><span>Instalacao, cursos, fundamentos, operacao do Claude Code e checklist antes da Aula 1.</span></div>
-          <div class="brief-row"><strong>Formato</strong><span>Ciclo executivo de 3 meses, com 8 encontros principais de 2h e atividades praticas durante o expediente.</span></div>
-          <div class="brief-row"><strong>Turma</strong><span>Grupo seletivo de ate 8 pessoas com familiaridade inicial em plataformas de IA.</span></div>
-          <div class="brief-row"><strong>Resultado</strong><span>Um MVP por participante, conectado a uma dor real do negocio.</span></div>
+          <div class="brief-row"><strong>Pré-curso</strong><span>Instalação, cursos, fundamentos, operação do Claude Code e checklist antes da Aula 1.</span></div>
+          <div class="brief-row"><strong>Formato</strong><span>Ciclo executivo de 3 meses, com 8 encontros principais de 2h e atividades práticas durante o expediente.</span></div>
+          <div class="brief-row"><strong>Turma</strong><span>Grupo seletivo de até 8 pessoas com familiaridade inicial em plataformas de IA.</span></div>
+          <div class="brief-row"><strong>Resultado</strong><span>Um MVP por participante, conectado a uma dor real do negócio.</span></div>
         </aside>
       </div>
       <div class="stats">
@@ -259,40 +261,41 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="eyebrow">~/ai-first/<b>pre-curso</b> --antes-da-aula-1</div>
+          <div class="eyebrow">~/ai-first/<b>pré-curso</b> --antes-da-aula-1</div>
           <h2>Como usar este material.</h2>
         </div>
-        <p>Este material existe para tirar o atrito tecnico antes da Aula 1. A ordem correta e: entender como usar o pre-curso, revisar o kit de ferramentas, instalar tudo passo a passo e so depois entrar no cronograma de aulas.</p>
+        <p>Este material existe para tirar o atrito técnico antes da Aula 1. A ordem correta é: entender como usar o pré-curso, revisar o kit de ferramentas, instalar tudo passo a passo e só depois entrar no cronograma de aulas.</p>
       </div>
       <div class="pre-grid">
         <div class="steps">
-          <div class="step"><div class="step-num">1</div><div><h3>Faça na ordem</h3><p>Comece pelos cursos obrigatorios, depois revise o kit, execute a instalacao e rode o check final antes de olhar a grade de aulas.</p></div></div>
-          <div class="step"><div class="step-num">2</div><div><h3>Reserve tempo real</h3><p>Planeje cerca de 1h30 para instalar VS Code, Git, Node.js, Python, Claude Code CLI, extensao no VS Code e rodar os checks finais.</p></div></div>
-          <div class="step"><div class="step-num">3</div><div><h3>Traga um desafio</h3><p>Cada participante chega com 2 ou 3 dores reais da area para avaliacao de viabilidade, risco, impacto e dados disponiveis.</p></div></div>
-          <div class="step"><div class="step-num">4</div><div><h3>Peça ajuda cedo</h3><p>Se travar em acesso, terminal, instalacao ou login, acione o time antes da Aula 1. Nao instale ferramenta paga, conector ou extensao fora do fluxo oficial.</p></div></div>
+          <div class="step"><div class="step-num">1</div><div><h3>Faça na ordem</h3><p>Comece pelos cursos obrigatórios, depois revise o kit, execute a instalação e rode o check final antes de olhar a grade de aulas.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><h3>Reserve tempo real</h3><p>Planeje cerca de 1h30 para instalar VS Code, Git, Node.js, Python, Claude Code CLI, extensão no VS Code e rodar os checks finais.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><h3>Traga um desafio</h3><p>Cada participante chega com 2 ou 3 dores reais da área para avaliação de viabilidade, risco, impacto e dados disponíveis.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div><h3>Peça ajuda cedo</h3><p>Se travar em acesso, terminal, instalação ou login, acione o time antes da Aula 1. Não instale ferramenta paga, conector ou extensão fora do fluxo oficial.</p></div></div>
         </div>
         <div class="panel" id="cursos">
           <h3>Trilha de cursos e leituras</h3>
-          <p>O pre-curso obrigatorio deve ser concluido antes da Aula 1. A continuidade da trilha entra como apoio conforme o MVP pedir mais automacao, integracao ou governanca.</p>
-          <h4>Pre-curso obrigatorio antes da Aula 1</h4>
+          <p>O pré-curso obrigatório deve ser concluído antes da Aula 1. A continuidade da trilha entra como apoio conforme o MVP pedir mais automação, integração ou governança.</p>
+          <div class="note" style="margin-top:14px"><b>Acesso aos cursos:</b> faça o cadastro/login no site da Anthropic com o e-mail da empresa. A página é em inglês; se preferir, use a tradução do navegador para português. Os vídeos também são em inglês, mas têm legendas em português.</div>
+          <h4>Pré-curso obrigatório antes da Aula 1</h4>
           <div class="course-list" style="margin-top:14px">
-            <a class="course" href="https://anthropic.skilljar.com/claude-101" target="_blank" rel="noreferrer"><strong>Claude 101</strong><span>Fundamentos para usar Claude no trabalho, com contexto, revisao humana e limites.</span><small>obrigatorio</small></a>
-            <a class="course" href="https://anthropic.skilljar.com/claude-code-101" target="_blank" rel="noreferrer"><strong>Claude Code 101</strong><span>Instalacao, Plan Mode, permissoes, memoria, subagents, hooks e fluxo diario.</span><small>obrigatorio</small></a>
-            <a class="course" href="https://anthropic.skilljar.com/claude-platform-101" target="_blank" rel="noreferrer"><strong>Claude Platform 101</strong><span>Base para entender API, limites, integracoes e uso governado da plataforma.</span><small>obrigatorio</small></a>
+            <a class="course" href="https://anthropic.skilljar.com/claude-101" target="_blank" rel="noreferrer"><strong>Claude 101</strong><span>Fundamentos para usar Claude no trabalho, com contexto, revisão humana e limites.</span><small>obrigatório</small></a>
+            <a class="course" href="https://anthropic.skilljar.com/claude-code-101" target="_blank" rel="noreferrer"><strong>Claude Code 101</strong><span>Instalação, Plan Mode, permissões, memória, subagents, hooks e fluxo diário.</span><small>obrigatório</small></a>
+            <a class="course" href="https://anthropic.skilljar.com/claude-platform-101" target="_blank" rel="noreferrer"><strong>Claude Platform 101</strong><span>Base para entender API, limites, integrações e uso governado da plataforma.</span><small>obrigatório</small></a>
           </div>
           <h4>Continuidade da trilha</h4>
           <div class="course-list" style="margin-top:14px">
             <a class="course" href="https://anthropic.skilljar.com/ai-fluency-framework-foundations" target="_blank" rel="noreferrer"><strong>AI Fluency</strong><span>Como delegar, descrever, discernir e trabalhar com IA de forma segura.</span><small>continuidade</small></a>
-            <a class="course" href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" rel="noreferrer"><strong>Claude Code in Action</strong><span>Uso pratico em fluxo de desenvolvimento, revisao, testes e documentacao.</span><small>continuidade</small></a>
-            <a class="course" href="https://anthropic.skilljar.com/claude-with-the-anthropic-api" target="_blank" rel="noreferrer"><strong>Building with the Claude API</strong><span>Para quem for transformar o MVP em servico ou integracao via API.</span><small>avancado</small></a>
+            <a class="course" href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" rel="noreferrer"><strong>Claude Code in Action</strong><span>Uso prático em fluxo de desenvolvimento, revisão, testes e documentação.</span><small>continuidade</small></a>
+            <a class="course" href="https://anthropic.skilljar.com/claude-with-the-anthropic-api" target="_blank" rel="noreferrer"><strong>Building with the Claude API</strong><span>Para quem for transformar o MVP em serviço ou integração via API.</span><small>avançado</small></a>
             <a class="course" href="https://anthropic.skilljar.com/introduction-to-model-context-protocol" target="_blank" rel="noreferrer"><strong>Introduction to MCP</strong><span>Conectar Claude a ferramentas e fontes externas com protocolo padronizado.</span><small>aula 6</small></a>
-            <a class="course" href="https://anthropic.skilljar.com/introduction-to-subagents" target="_blank" rel="noreferrer"><strong>Introduction to subagents</strong><span>Delegar tarefas especializadas com contexto e permissoes mais controladas.</span><small>aula 6</small></a>
-            <a class="course" href="https://anthropic.skilljar.com/introduction-to-agent-skills" target="_blank" rel="noreferrer"><strong>Introduction to agent skills</strong><span>Criar instrucoes reutilizaveis para padronizar trabalho de agentes.</span><small>aula 7</small></a>
-            <a class="course" href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank" rel="noreferrer"><strong>Prompt Engineering</strong><span>Referencia viva para clareza, exemplos, criterios de sucesso e avaliacao.</span><small>referencia</small></a>
-            <a class="course" href="https://code.claude.com/docs/en/common-workflows" target="_blank" rel="noreferrer"><strong>Common Workflows</strong><span>Receitas para entender projetos, planejar, testar, documentar e abrir PRs.</span><small>referencia</small></a>
-            <a class="course" href="https://code.claude.com/docs/en/ide-integrations" target="_blank" rel="noreferrer"><strong>Claude Code no VS Code</strong><span>Painel visual, atalhos, terminal integrado, diffs e historico no editor.</span><small>referencia</small></a>
+            <a class="course" href="https://anthropic.skilljar.com/introduction-to-subagents" target="_blank" rel="noreferrer"><strong>Introduction to subagents</strong><span>Delegar tarefas especializadas com contexto e permissões mais controladas.</span><small>aula 6</small></a>
+            <a class="course" href="https://anthropic.skilljar.com/introduction-to-agent-skills" target="_blank" rel="noreferrer"><strong>Introduction to agent skills</strong><span>Criar instruções reutilizáveis para padronizar trabalho de agentes.</span><small>aula 7</small></a>
+            <a class="course" href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" target="_blank" rel="noreferrer"><strong>Prompt Engineering</strong><span>Referência viva para clareza, exemplos, critérios de sucesso e avaliação.</span><small>referência</small></a>
+            <a class="course" href="https://code.claude.com/docs/en/common-workflows" target="_blank" rel="noreferrer"><strong>Common Workflows</strong><span>Receitas para entender projetos, planejar, testar, documentar e abrir PRs.</span><small>referência</small></a>
+            <a class="course" href="https://code.claude.com/docs/en/ide-integrations" target="_blank" rel="noreferrer"><strong>Claude Code no VS Code</strong><span>Painel visual, atalhos, terminal integrado, diffs e histórico no editor.</span><small>referência</small></a>
           </div>
-          <div class="note" style="margin-top:14px"><b>Regra:</b> cursos e docs sao liberados para estudo. Ferramenta paga, extensao, conector, MCP, token ou recurso novo segue o fluxo de requisicao e aprovacao da One Big Media.</div>
+          <div class="note" style="margin-top:14px"><b>Regra:</b> cursos e docs são liberados para estudo. Ferramenta paga, extensão, conector, MCP, token ou recurso novo segue o fluxo de requisição e aprovação da One Big Media.</div>
         </div>
       </div>
     </div>
@@ -305,20 +308,20 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
           <div class="eyebrow">~/ai-first/<b>ferramentas</b> --kit</div>
           <h2>Seu kit de ferramentas.</h2>
         </div>
-        <p>Este e o conjunto minimo para acompanhar o programa: pensar com Claude, operar arquivos no VS Code, criar apps simples, tratar dados e manter governanca sobre acessos, segredos e fontes internas.</p>
+        <p>Este é o conjunto mínimo para acompanhar o programa: pensar com Claude, operar arquivos no VS Code, criar apps simples, tratar dados e manter governança sobre acessos, segredos e fontes internas.</p>
       </div>
       <div class="grid-3">
         <div class="panel"><h3>Claude App e chat</h3><p>Usado para raciocinar, comparar caminhos, montar prompts, revisar escopo e trabalhar em modo coworker antes de mexer em arquivos.</p></div>
         <div class="panel"><h3>Claude Code CLI</h3><p>Usado dentro da pasta do projeto para ler contexto, planejar, editar arquivos, executar comandos aprovados e explicar diffs.</p></div>
-        <div class="panel"><h3>Claude Code no VS Code</h3><p>Integra o Claude ao editor para trabalhar com arquivos abertos, terminal, revisao visual e fluxo Plan - Execute - Review.</p></div>
-        <div class="panel"><h3>VS Code</h3><p>Editor principal do curso. E onde vamos abrir a pasta, organizar arquivos, rodar terminal e revisar tudo que a IA alterar.</p></div>
-        <div class="panel"><h3>Git</h3><p>Historico do projeto. Ajuda a comparar alteracoes, registrar evolucao e voltar atras quando algo nao ficar correto.</p></div>
-        <div class="panel"><h3>Node.js e Next.js</h3><p>Base para criar telas e pequenos apps internos. O Next.js entra como forma pratica de transformar automacao em interface.</p></div>
-        <div class="panel"><h3>Python</h3><p>Linguagem para scripts, planilhas, arquivos, automacoes e analises. O foco e criar rotinas pequenas, legiveis e revisaveis.</p></div>
-        <div class="panel"><h3>Banco de dados e SQL</h3><p>Usado apenas com acesso aprovado, menor privilegio e, de preferencia, leitura. Para treino, usamos SQLite, base exemplo ou dados mascarados.</p></div>
-        <div class="panel"><h3>Terminal</h3><p>Porta de entrada para comandos, validacoes, instalacoes e execucoes locais. Tudo que for sensivel precisa ser revisado antes de rodar.</p></div>
+        <div class="panel"><h3>Claude Code no VS Code</h3><p>Integra o Claude ao editor para trabalhar com arquivos abertos, terminal, revisão visual e fluxo Plan - Execute - Review.</p></div>
+        <div class="panel"><h3>VS Code</h3><p>Editor principal do curso. É onde vamos abrir a pasta, organizar arquivos, rodar terminal e revisar tudo que a IA alterar.</p></div>
+        <div class="panel"><h3>Git</h3><p>Histórico do projeto. Ajuda a comparar alterações, registrar evolução e voltar atrás quando algo não ficar correto.</p></div>
+        <div class="panel"><h3>Node.js e Next.js</h3><p>Base para criar telas e pequenos apps internos. O Next.js entra como forma prática de transformar automação em interface.</p></div>
+        <div class="panel"><h3>Python</h3><p>Linguagem para scripts, planilhas, arquivos, automações e análises. O foco é criar rotinas pequenas, legíveis e revisáveis.</p></div>
+        <div class="panel"><h3>Banco de dados e SQL</h3><p>Usado apenas com acesso aprovado, menor privilégio e, de preferência, leitura. Para treino, usamos SQLite, base exemplo ou dados mascarados.</p></div>
+        <div class="panel"><h3>Terminal</h3><p>Porta de entrada para comandos, validações, instalações e execuções locais. Tudo que for sensível precisa ser revisado antes de rodar.</p></div>
       </div>
-      <div class="note" style="margin-top:14px"><b>Regra:</b> nenhuma ferramenta, extensao, conector, token, banco ou automacao com custo deve ser usada fora do fluxo de aprovacao da One Big Media.</div>
+      <div class="note" style="margin-top:14px"><b>Regra:</b> nenhuma ferramenta, extensão, conector, token, banco ou automação com custo deve ser usada fora do fluxo de aprovação da One Big Media.</div>
     </div>
   </section>
 
@@ -326,10 +329,10 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="eyebrow">~/ai-first/<b>instalacao</b> --do-zero</div>
-          <h2>Instalacao passo a passo.</h2>
+          <div class="eyebrow">~/ai-first/<b>instalação</b> --do-zero</div>
+          <h2>Instalação passo a passo.</h2>
         </div>
-        <p>Escolha seu sistema e siga na ordem. Cada etapa tem link oficial, comando de verificacao e um sinal claro de sucesso.</p>
+        <p>Escolha seu sistema e siga na ordem. Cada etapa tem link oficial, comando de verificação e um sinal claro de sucesso.</p>
       </div>
 
       <div class="os-tabs" role="tablist" aria-label="Sistema operacional">
@@ -340,19 +343,19 @@ footer{padding:36px 0;color:var(--dim);font-family:var(--mono);font-size:12px;bo
       <div class="steps install-steps" id="steps-win">
         <div class="step"><div class="step-num">1</div><div><h3>Instalar VS Code</h3><p>Baixe em <a href="https://code.visualstudio.com/download" target="_blank" rel="noreferrer">code.visualstudio.com/download</a>. Marque <span class="mono">Add to PATH</span> quando aparecer e reabra o PowerShell.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - verificar VS Code</span><button class="copy" type="button">copiar</button></div><pre>code --version
 code .</pre></div><div class="verify">Sucesso: o VS Code abre a pasta atual.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><h3>Instalar Git for Windows</h3><p>Baixe em <a href="https://git-scm.com/download/win" target="_blank" rel="noreferrer">git-scm.com/download/win</a>. O Git tambem ajuda o Claude Code a usar ferramentas de terminal melhores no Windows.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - configurar Git</span><button class="copy" type="button">copiar</button></div><pre>git --version
+        <div class="step"><div class="step-num">2</div><div><h3>Instalar Git for Windows</h3><p>Baixe em <a href="https://git-scm.com/download/win" target="_blank" rel="noreferrer">git-scm.com/download/win</a>. O Git também ajuda o Claude Code a usar ferramentas de terminal melhores no Windows.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - configurar Git</span><button class="copy" type="button">copiar</button></div><pre>git --version
 git config --global user.name "Seu Nome"
-git config --global user.email "voce@emotionstudios.com"</pre></div><div class="verify">Sucesso: o comando mostra a versao do Git.</div></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Instalar Node.js LTS</h3><p>Baixe a versao LTS em <a href="https://nodejs.org" target="_blank" rel="noreferrer">nodejs.org</a>. Next.js sera usado via <span class="mono">npx</span>, sem instalacao global.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - validar Node e Next</span><button class="copy" type="button">copiar</button></div><pre>node --version
+git config --global user.email "voce@emotionstudios.com"</pre></div><div class="verify">Sucesso: o comando mostra a versão do Git.</div></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Instalar Node.js LTS</h3><p>Baixe a versão LTS em <a href="https://nodejs.org" target="_blank" rel="noreferrer">nodejs.org</a>. Next.js será usado via <span class="mono">npx</span>, sem instalação global.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - validar Node e Next</span><button class="copy" type="button">copiar</button></div><pre>node --version
 npm --version
-npx create-next-app@latest --version</pre></div><div class="verify">Sucesso: os tres comandos retornam versao ou ajuda.</div></div></div>
+npx create-next-app@latest --version</pre></div><div class="verify">Sucesso: os três comandos retornam versão ou ajuda.</div></div></div>
         <div class="step"><div class="step-num">4</div><div><h3>Instalar Python e pip</h3><p>Baixe em <a href="https://www.python.org/downloads/" target="_blank" rel="noreferrer">python.org/downloads</a>. Marque <span class="mono">Add python.exe to PATH</span> no instalador.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - validar Python</span><button class="copy" type="button">copiar</button></div><pre>python --version
 py --version
 pip --version</pre></div></div></div>
-        <div class="step"><div class="step-num">5</div><div><h3>Instalar Claude Code CLI</h3><p>Use o instalador nativo recomendado pela documentacao oficial. Nao precisa abrir como administrador.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - instalador oficial</span><button class="copy" type="button">copiar</button></div><pre>irm https://claude.ai/install.ps1 | iex</pre></div><div class="cmd"><div class="cmd-top"><span>PowerShell - verificacao</span><button class="copy" type="button">copiar</button></div><pre>claude --version
+        <div class="step"><div class="step-num">5</div><div><h3>Instalar Claude Code CLI</h3><p>Use o instalador nativo recomendado pela documentação oficial. Não precisa abrir como administrador.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - instalador oficial</span><button class="copy" type="button">copiar</button></div><pre>irm https://claude.ai/install.ps1 | iex</pre></div><div class="cmd"><div class="cmd-top"><span>PowerShell - verificação</span><button class="copy" type="button">copiar</button></div><pre>claude --version
 claude doctor</pre></div></div></div>
-        <div class="step"><div class="step-num">6</div><div><h3>Instalar a extensao Claude Code no VS Code</h3><p>No VS Code, abra Extensions com <span class="mono">Ctrl+Shift+X</span>, procure <span class="mono">Claude Code</span> ou use o Marketplace oficial.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - instalar extensao</span><button class="copy" type="button">copiar</button></div><pre>code --install-extension anthropic.claude-code</pre></div><div class="verify">Sucesso: aparece o icone/painel do Claude Code no VS Code.</div></div></div>
-        <div class="step"><div class="step-num">7</div><div><h3>Credenciais e acesso ao Claude</h3><p>Este guia leva apenas ate a instalacao estar pronta. As credenciais especiais de acesso ao Claude Code serao enviadas para todos os participantes antes da Aula 01.</p><div class="verify">Sucesso: instalacao validada; login sera feito com as credenciais enviadas antes da aula.</div></div></div>
+        <div class="step"><div class="step-num">6</div><div><h3>Instalar a extensão Claude Code no VS Code</h3><p>No VS Code, abra Extensions com <span class="mono">Ctrl+Shift+X</span>, procure <span class="mono">Claude Code</span> ou use o Marketplace oficial.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - instalar extensão</span><button class="copy" type="button">copiar</button></div><pre>code --install-extension anthropic.claude-code</pre></div><div class="verify">Sucesso: aparece o ícone/painel do Claude Code no VS Code.</div></div></div>
+        <div class="step"><div class="step-num">7</div><div><h3>Credenciais e acesso ao Claude</h3><p>Este guia leva apenas até a instalação estar pronta. As credenciais especiais de acesso ao Claude Code serão enviadas para todos os participantes antes da Aula 01.</p><div class="verify">Sucesso: instalação validada; login será feito com as credenciais enviadas antes da aula.</div></div></div>
         <div class="step"><div class="step-num">8</div><div><h3>Check final</h3><p>Abra o menu Iniciar, pesquise PowerShell e abra uma janela de comando. Depois copie o bloco abaixo, cole no PowerShell e pressione Enter. Rode tudo de uma vez e envie o erro no canal do programa se qualquer linha falhar.</p><div class="cmd"><div class="cmd-top"><span>PowerShell - check completo</span><button class="copy" type="button">copiar</button></div><pre>code --version
 git --version
 node --version
@@ -366,20 +369,20 @@ claude doctor</pre></div></div></div>
       <div class="steps install-steps hide" id="steps-mac">
         <div class="step"><div class="step-num">1</div><div><h3>Instalar VS Code</h3><p>Baixe em <a href="https://code.visualstudio.com/download" target="_blank" rel="noreferrer">code.visualstudio.com/download</a>, arraste para Aplicativos e habilite o comando <span class="mono">code</span> pela Command Palette.</p><div class="cmd"><div class="cmd-top"><span>Terminal - verificar VS Code</span><button class="copy" type="button">copiar</button></div><pre>code --version
 code .</pre></div><div class="verify">Sucesso: o VS Code abre a pasta atual.</div></div></div>
-        <div class="step"><div class="step-num">2</div><div><h3>Instalar ferramentas de linha de comando</h3><p>O Git costuma vir pelas Command Line Tools da Apple. Se preferir, tambem pode baixar em <a href="https://git-scm.com/download/mac" target="_blank" rel="noreferrer">git-scm.com/download/mac</a>.</p><div class="cmd"><div class="cmd-top"><span>Terminal - instalar e configurar Git</span><button class="copy" type="button">copiar</button></div><pre>xcode-select --install
+        <div class="step"><div class="step-num">2</div><div><h3>Instalar ferramentas de linha de comando</h3><p>O Git costuma vir pelas Command Line Tools da Apple. Se preferir, também pode baixar em <a href="https://git-scm.com/download/mac" target="_blank" rel="noreferrer">git-scm.com/download/mac</a>.</p><div class="cmd"><div class="cmd-top"><span>Terminal - instalar e configurar Git</span><button class="copy" type="button">copiar</button></div><pre>xcode-select --install
 git --version
 git config --global user.name "Seu Nome"
 git config --global user.email "voce@emotionstudios.com"</pre></div></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Instalar Node.js LTS</h3><p>Baixe em <a href="https://nodejs.org" target="_blank" rel="noreferrer">nodejs.org</a> ou use Homebrew, se ja estiver padronizado no seu Mac.</p><div class="cmd"><div class="cmd-top"><span>Terminal - validar Node e Next</span><button class="copy" type="button">copiar</button></div><pre>node --version
+        <div class="step"><div class="step-num">3</div><div><h3>Instalar Node.js LTS</h3><p>Baixe em <a href="https://nodejs.org" target="_blank" rel="noreferrer">nodejs.org</a> ou use Homebrew, se já estiver padronizado no seu Mac.</p><div class="cmd"><div class="cmd-top"><span>Terminal - validar Node e Next</span><button class="copy" type="button">copiar</button></div><pre>node --version
 npm --version
 npx create-next-app@latest --version</pre></div></div></div>
-        <div class="step"><div class="step-num">4</div><div><h3>Instalar Python e pip</h3><p>Baixe em <a href="https://www.python.org/downloads/" target="_blank" rel="noreferrer">python.org/downloads</a>. Vamos usar Python para planilhas, dados, scripts e prototipos.</p><div class="cmd"><div class="cmd-top"><span>Terminal - validar Python</span><button class="copy" type="button">copiar</button></div><pre>python3 --version
+        <div class="step"><div class="step-num">4</div><div><h3>Instalar Python e pip</h3><p>Baixe em <a href="https://www.python.org/downloads/" target="_blank" rel="noreferrer">python.org/downloads</a>. Vamos usar Python para planilhas, dados, scripts e protótipos.</p><div class="cmd"><div class="cmd-top"><span>Terminal - validar Python</span><button class="copy" type="button">copiar</button></div><pre>python3 --version
 python3 -m pip --version</pre></div></div></div>
-        <div class="step"><div class="step-num">5</div><div><h3>Instalar Claude Code CLI</h3><p>Use o instalador nativo recomendado pela documentacao oficial e reabra o Terminal apos instalar.</p><div class="cmd"><div class="cmd-top"><span>Terminal - instalador oficial</span><button class="copy" type="button">copiar</button></div><pre>curl -fsSL https://claude.ai/install.sh | bash</pre></div><div class="cmd"><div class="cmd-top"><span>Terminal - verificacao</span><button class="copy" type="button">copiar</button></div><pre>claude --version
-claude doctor</pre></div><div class="note"><b>Alternativa:</b> se usar Homebrew, a documentacao tambem lista <span class="mono">brew install --cask claude-code</span>.</div></div></div>
-        <div class="step"><div class="step-num">6</div><div><h3>Instalar a extensao Claude Code no VS Code</h3><p>No VS Code, abra Extensions com <span class="mono">Cmd+Shift+X</span>, procure <span class="mono">Claude Code</span> ou instale pelo comando abaixo.</p><div class="cmd"><div class="cmd-top"><span>Terminal - instalar extensao</span><button class="copy" type="button">copiar</button></div><pre>code --install-extension anthropic.claude-code</pre></div></div></div>
-        <div class="step"><div class="step-num">7</div><div><h3>Credenciais e acesso ao Claude</h3><p>Este guia leva apenas ate a instalacao estar pronta. As credenciais especiais de acesso ao Claude Code serao enviadas para todos os participantes antes da Aula 01.</p><div class="verify">Sucesso: instalacao validada; login sera feito com as credenciais enviadas antes da aula.</div></div></div>
-        <div class="step"><div class="step-num">8</div><div><h3>Check final</h3><p>Abra o Spotlight com Cmd+Espaco, pesquise Terminal e abra uma janela de comando. Depois copie o bloco abaixo, cole no Terminal e pressione Enter. Rode tudo de uma vez e envie o erro no canal do programa se qualquer linha falhar.</p><div class="cmd"><div class="cmd-top"><span>Terminal - check completo</span><button class="copy" type="button">copiar</button></div><pre>code --version
+        <div class="step"><div class="step-num">5</div><div><h3>Instalar Claude Code CLI</h3><p>Use o instalador nativo recomendado pela documentação oficial e reabra o Terminal após instalar.</p><div class="cmd"><div class="cmd-top"><span>Terminal - instalador oficial</span><button class="copy" type="button">copiar</button></div><pre>curl -fsSL https://claude.ai/install.sh | bash</pre></div><div class="cmd"><div class="cmd-top"><span>Terminal - verificação</span><button class="copy" type="button">copiar</button></div><pre>claude --version
+claude doctor</pre></div><div class="note"><b>Alternativa:</b> se usar Homebrew, a documentação também lista <span class="mono">brew install --cask claude-code</span>.</div></div></div>
+        <div class="step"><div class="step-num">6</div><div><h3>Instalar a extensão Claude Code no VS Code</h3><p>No VS Code, abra Extensions com <span class="mono">Cmd+Shift+X</span>, procure <span class="mono">Claude Code</span> ou instale pelo comando abaixo.</p><div class="cmd"><div class="cmd-top"><span>Terminal - instalar extensão</span><button class="copy" type="button">copiar</button></div><pre>code --install-extension anthropic.claude-code</pre></div></div></div>
+        <div class="step"><div class="step-num">7</div><div><h3>Credenciais e acesso ao Claude</h3><p>Este guia leva apenas até a instalação estar pronta. As credenciais especiais de acesso ao Claude Code serão enviadas para todos os participantes antes da Aula 01.</p><div class="verify">Sucesso: instalação validada; login será feito com as credenciais enviadas antes da aula.</div></div></div>
+        <div class="step"><div class="step-num">8</div><div><h3>Check final</h3><p>Abra o Spotlight com Cmd+Espaço, pesquise Terminal e abra uma janela de comando. Depois copie o bloco abaixo, cole no Terminal e pressione Enter. Rode tudo de uma vez e envie o erro no canal do programa se qualquer linha falhar.</p><div class="cmd"><div class="cmd-top"><span>Terminal - check completo</span><button class="copy" type="button">copiar</button></div><pre>code --version
 git --version
 node --version
 npm --version
@@ -395,21 +398,21 @@ claude doctor</pre></div></div></div>
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="eyebrow">~/ai-first/<b>fundamentos</b> --operacao</div>
-          <h2>Fundamentos e modo de operacao.</h2>
+          <div class="eyebrow">~/ai-first/<b>fundamentos</b> --operação</div>
+          <h2>Fundamentos e modo de operação.</h2>
         </div>
-        <p>O programa nao exige que todo mundo vire programador. Ele exige clareza para orientar a IA, revisar resultado e saber quando uma automacao pode ou nao seguir adiante.</p>
+        <p>O programa não exige que todo mundo vire programador. Ele exige clareza para orientar a IA, revisar resultado e saber quando uma automação pode ou não seguir adiante.</p>
       </div>
       <div class="grid-3">
-        <div class="panel"><h3>LLM sem misterio</h3><p>Claude gera respostas a partir de padroes e contexto. Ele raciocina bem, mas pode errar com confianca. Por isso revisao humana faz parte do fluxo.</p></div>
-        <div class="panel"><h3>Prompt bom</h3><p>Inclui contexto, objetivo, restricoes, formato desejado, exemplos e criterio de sucesso. Quanto mais especifico o pedido, menor o retrabalho.</p></div>
-        <div class="panel"><h3>Claude Code</h3><p>E o Claude com acesso ao projeto: le arquivos, propõe plano, edita codigo, roda comandos aprovados e explica o que mudou.</p></div>
-        <div class="panel"><h3>Plan Mode</h3><p>Use quando ainda nao quer editar nada. Primeiro o agente explora, entende a pasta, propõe etapas e so depois executa.</p></div>
-        <div class="panel"><h3>Review</h3><p>Antes de aceitar resultado, revise arquivos alterados, comandos executados, dados usados, diffs e proximos passos.</p></div>
-        <div class="panel"><h3>Coworker</h3><p>Trate Claude como par de trabalho: peça alternativas, mande explicar decisoes, interrompa caminhos ruins e valide saidas com criterio.</p></div>
-        <div class="panel"><h3>Memoria do projeto</h3><p>Use README, docs e, quando fizer sentido, CLAUDE.md para registrar padroes, comandos, decisoes e limites recorrentes.</p></div>
-        <div class="panel"><h3>Dados com contexto</h3><p>Explique origem, permissao, mascara, qualidade e limite de uso. Dado real sensivel nao entra em prompt sem aprovacao.</p></div>
-        <div class="panel"><h3>Humano decide</h3><p>A IA acelera o trabalho, mas a responsabilidade tecnica e de negocio continua com quem constrói e valida o MVP.</p></div>
+        <div class="panel"><h3>LLM sem mistério</h3><p>Claude gera respostas a partir de padrões e contexto. Ele raciocina bem, mas pode errar com confiança. Por isso revisão humana faz parte do fluxo.</p></div>
+        <div class="panel"><h3>Prompt bom</h3><p>Inclui contexto, objetivo, restrições, formato desejado, exemplos e critério de sucesso. Quanto mais específico o pedido, menor o retrabalho.</p></div>
+        <div class="panel"><h3>Claude Code</h3><p>É o Claude com acesso ao projeto: lê arquivos, propõe plano, edita código, roda comandos aprovados e explica o que mudou.</p></div>
+        <div class="panel"><h3>Plan Mode</h3><p>Use quando ainda não quer editar nada. Primeiro o agente explora, entende a pasta, propõe etapas e só depois executa.</p></div>
+        <div class="panel"><h3>Review</h3><p>Antes de aceitar resultado, revise arquivos alterados, comandos executados, dados usados, diffs e próximos passos.</p></div>
+        <div class="panel"><h3>Coworker</h3><p>Trate Claude como par de trabalho: peça alternativas, mande explicar decisões, interrompa caminhos ruins e valide saídas com critério.</p></div>
+        <div class="panel"><h3>Memória do projeto</h3><p>Use README, docs e, quando fizer sentido, CLAUDE.md para registrar padrões, comandos, decisões e limites recorrentes.</p></div>
+        <div class="panel"><h3>Dados com contexto</h3><p>Explique origem, permissão, máscara, qualidade e limite de uso. Dado real sensível não entra em prompt sem aprovação.</p></div>
+        <div class="panel"><h3>Humano decide</h3><p>A IA acelera o trabalho, mas a responsabilidade técnica e de negócio continua com quem constrói e valida o MVP.</p></div>
       </div>
     </div>
   </section>
@@ -418,24 +421,24 @@ claude doctor</pre></div></div></div>
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="eyebrow">~/ai-first/<b>governanca</b> --seguranca --dados</div>
-          <h2>Governanca, seguranca e uso de IA.</h2>
+          <div class="eyebrow">~/ai-first/<b>governança</b> --segurança --dados</div>
+          <h2>Governança, segurança e uso de IA.</h2>
         </div>
-        <p>Todo MVP precisa nascer com limites claros. A regra e simples: menor privilegio, revisao humana, rastreabilidade e nenhum segredo exposto para IA.</p>
+        <p>Todo MVP precisa nascer com limites claros. A regra é simples: menor privilégio, revisão humana, rastreabilidade e nenhum segredo exposto para IA.</p>
       </div>
-      <div class="note" style="margin-bottom:16px"><b>Quem e quem:</b> a validacao de projetos e a aprovacao para producao passam pelo Paulo. O acesso ao Claude Code e liberado pelo Fred Valente. Demandas relevantes devem nascer ou ser registradas no Jira.</div>
+      <div class="note" style="margin-bottom:16px"><b>Quem é quem:</b> a validação de projetos e a aprovação para produção passam pelo Paulo. O acesso ao Claude Code é liberado pelo Fred Valente. Demandas relevantes devem nascer ou ser registradas no Jira.</div>
       <div class="grid-3">
-        <div class="panel"><h3>Principios obrigatorios</h3><ul class="panel-list"><li>Menor privilegio por padrao.</li><li>Revisao humana antes de mudanca critica.</li><li>Segredos nunca ficam no codigo, prompt, print ou log.</li><li>Projeto critico precisa de Jira, PR e registro de decisao.</li></ul></div>
+        <div class="panel"><h3>Princípios obrigatórios</h3><ul class="panel-list"><li>Menor privilégio por padrão.</li><li>Revisão humana antes de mudança crítica.</li><li>Segredos nunca ficam no código, prompt, print ou log.</li><li>Projeto crítico precisa de Jira, PR e registro de decisão.</li></ul></div>
         <div class="panel"><h3>Nunca envie para IA</h3><ul class="panel-list"><li>Senhas, tokens, API keys e service accounts.</li><li>Arquivos .env, client_secret, .pem ou .key.</li><li>Dumps de banco e dados de clientes, parceiros ou financeiro.</li><li>Logs com cookies, credenciais ou dados pessoais.</li></ul></div>
-        <div class="panel"><h3>Pode usar sem aprovacao extra</h3><ul class="panel-list"><li>Codigo sem segredo.</li><li>Logs anonimizados.</li><li>Dados ficticios, minimizados ou mascarados.</li><li>Documentacao tecnica sem informacao sensivel.</li></ul></div>
-        <div class="panel"><h3>Claude Code</h3><ul class="panel-list"><li>Use conta individual liberada pela empresa.</li><li>Revise comandos antes de executar.</li><li>Sem auto-execucao irrestrita em repositorios criticos.</li><li>Projeto critico pede sessao separada e registro.</li></ul></div>
-        <div class="panel"><h3>Ferramentas e custo</h3><ul class="panel-list"><li>Nao adote SaaS, extensao, conector ou MCP sem aprovacao.</li><li>Todo uso relevante precisa de dono, finalidade e limite de custo.</li><li>Repositorios oficiais ficam na organizacao aprovada.</li><li>Producao exige pipeline de validacao.</li></ul></div>
-        <div class="panel"><h3>Banco de dados</h3><ul class="panel-list"><li>Preferir treino com SQLite, CSV ou base mascarada.</li><li>Banco real apenas com aprovacao e menor privilegio.</li><li>Credencial corporativa nunca entra em prompt.</li><li>Consulta e resultado precisam ser documentados.</li></ul></div>
+        <div class="panel"><h3>Pode usar sem aprovação extra</h3><ul class="panel-list"><li>Código sem segredo.</li><li>Logs anonimizados.</li><li>Dados fictícios, minimizados ou mascarados.</li><li>Documentação técnica sem informação sensível.</li></ul></div>
+        <div class="panel"><h3>Claude Code</h3><ul class="panel-list"><li>Use conta individual liberada pela empresa.</li><li>Revise comandos antes de executar.</li><li>Sem autoexecução irrestrita em repositórios críticos.</li><li>Projeto crítico pede sessão separada e registro.</li></ul></div>
+        <div class="panel"><h3>Ferramentas e custo</h3><ul class="panel-list"><li>Não adote SaaS, extensão, conector ou MCP sem aprovação.</li><li>Todo uso relevante precisa de dono, finalidade e limite de custo.</li><li>Repositórios oficiais ficam na organização aprovada.</li><li>Produção exige pipeline de validação.</li></ul></div>
+        <div class="panel"><h3>Banco de dados</h3><ul class="panel-list"><li>Preferir treino com SQLite, CSV ou base mascarada.</li><li>Banco real apenas com aprovação e menor privilégio.</li><li>Credencial corporativa nunca entra em prompt.</li><li>Consulta e resultado precisam ser documentados.</li></ul></div>
       </div>
       <div class="risk-grid">
-        <div class="risk low"><strong>Risco baixo</strong><p>Sem dados sensiveis, sem credenciais e sem producao. Ex.: script local, prova de conceito, documentacao.</p></div>
-        <div class="risk mid"><strong>Risco medio</strong><p>Usa APIs externas, tokens limitados ou dados internos. Ex.: automacao em teste, pipeline em homologacao.</p></div>
-        <div class="risk high"><strong>Risco alto</strong><p>Toca producao, banco real, cliente, financeiro ou permissao administrativa. Exige aprovacao reforcada.</p></div>
+        <div class="risk low"><strong>Risco baixo</strong><p>Sem dados sensíveis, sem credenciais e sem produção. Ex.: script local, prova de conceito, documentação.</p></div>
+        <div class="risk mid"><strong>Risco médio</strong><p>Usa APIs externas, tokens limitados ou dados internos. Ex.: automação em teste, pipeline em homologação.</p></div>
+        <div class="risk high"><strong>Risco alto</strong><p>Toca produção, banco real, cliente, financeiro ou permissão administrativa. Exige aprovação reforçada.</p></div>
       </div>
     </div>
   </section>
@@ -447,19 +450,19 @@ claude doctor</pre></div></div></div>
           <div class="eyebrow">~/ai-first/<b>agenda</b> --aula-1..8</div>
           <h2>Cronograma das aulas do programa.</h2>
         </div>
-        <p>A Aula 01 abre com a visao estrategica do Sistema Operacional AI-First. Depois, cada encontro transforma essa visao em pratica: agente, escopo, dados, interface, integracoes, governanca e demo.</p>
+        <p>A Aula 01 abre com a visão estratégica do Sistema Operacional AI-First. Depois, cada encontro transforma essa visão em prática: agente, escopo, dados, interface, integrações, governança e demo.</p>
       </div>
       <div class="agenda">
         <article class="day">
-          <div class="day-label"><b>01</b><span>visao</span></div>
+          <div class="day-label"><b>01</b><span>visão</span></div>
           <div class="day-body">
             <h3>A era do Sistema Operacional AI-First</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Por que escala, dados e multiplataforma exigem o fim dos silos operacionais.</li><li>Diferença entre AI-Enabled, automacao burocratica e uma operacao realmente AI-First.</li><li>Vibe Coding: o analista como arquiteto de solucao, curador de regras e Human-in-the-Loop.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Mapear a visao utopica de um processo da area, de tras para frente, assumindo IA no centro.</li><li>Separar o que pode ser padronizado pelo motor de IA e o que exige aprovacao humana.</li><li>Escolher um processo interno de baixo risco para virar candidato a MVP.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Mapa inicial do processo da area.</li><li>Ferramenta OneBigMedia OS disponibilizada para estruturar pastas de projetos.</li><li>Hipotese de modulo para o OS AI-First da One Big Media.</li><li>Lista de excecoes que precisam continuar com validacao humana.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Por que escala, dados e multiplataforma exigem o fim dos silos operacionais.</li><li>Diferença entre AI-Enabled, automação burocrática e uma operação realmente AI-First.</li><li>Vibe Coding: o analista como arquiteto de solução, curador de regras e Human-in-the-Loop.</li></ul></div>
+              <div class="day-col"><strong>Prática do dia</strong><ul><li>Mapear a visão utópica de um processo da área, de trás para frente, assumindo IA no centro.</li><li>Separar o que pode ser padronizado pelo motor de IA e o que exige aprovação humana.</li><li>Escolher um processo interno de baixo risco para virar candidato a MVP.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Mapa inicial do processo da área.</li><li>Ferramenta OneBigMedia OS disponibilizada para estruturar pastas de projetos.</li><li>Hipótese de módulo para o OS AI-First da One Big Media.</li><li>Lista de exceções que precisam continuar com validação humana.</li></ul></div>
             </div>
-            <span class="tag">Visao: OS AI-First alinhado</span>
+            <span class="tag">Visão: OS AI-First alinhado</span>
           </div>
         </article>
 
@@ -468,24 +471,24 @@ claude doctor</pre></div></div></div>
           <div class="day-body">
             <h3>Claude, Claude Code, VS Code e fluxo de trabalho</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Diferença entre Claude App, chat, Claude Code CLI e extensao no VS Code.</li><li>Como usar Plan Mode, prompts com contexto e revisao de diffs.</li><li>Git basico: repositorio, commit, historico, branch quando precisar, desfazer alteracao ruim e o que nunca enviar.</li><li>Como estruturar arquivos para a IA entender objetivo, decisoes, dados e limites.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Cada pessoa apresenta o processo mapeado na Aula 01.</li><li>Criar a pasta de trabalho do programa no VS Code.</li><li>Criar README, docs/DESAFIO.md, docs/PROMPTS.md e docs/DECISOES.md.</li><li>Usar Claude Code para explicar a estrutura e propor proximos passos.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Diferença entre Claude App, chat, Claude Code CLI e extensão no VS Code.</li><li>Como usar Plan Mode, prompts com contexto e revisão de diffs.</li><li>Git básico: repositório, commit, histórico, branch quando precisar, desfazer alteração ruim e o que nunca enviar.</li><li>Como estruturar arquivos para a IA entender objetivo, decisões, dados e limites.</li></ul></div>
+              <div class="day-col"><strong>Prática do dia</strong><ul><li>Cada pessoa apresenta o processo mapeado na Aula 01.</li><li>Criar a pasta de trabalho do programa no VS Code.</li><li>Criar README, docs/DESAFIO.md, docs/PROMPTS.md e docs/DECISOES.md.</li><li>Usar Claude Code para explicar a estrutura e propor próximos passos.</li></ul></div>
               <div class="day-col"><strong>Entrega</strong><ul><li>Ambiente validado no VS Code.</li><li>Primeira pasta estruturada para o MVP.</li><li>Fluxo Plan -> Execute -> Review praticado.</li></ul></div>
             </div>
-            <span class="tag">Operacao: agente pronto para trabalhar</span>
+            <span class="tag">Operação: agente pronto para trabalhar</span>
           </div>
         </article>
 
         <article class="day">
           <div class="day-label"><b>03</b><span>escopo</span></div>
           <div class="day-body">
-            <h3>Transformar a visao AI-First em escopo de MVP</h3>
+            <h3>Transformar a visão AI-First em escopo de MVP</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como sair da visao utopica para um recorte viavel dentro dos encontros do programa.</li><li>Como mapear entrada, saida, regra, excecao, dono da validacao e limite de seguranca.</li><li>Como evitar a armadilha de apenas acelerar uma burocracia antiga.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>O grupo prioriza por impacto, frequencia, dados disponiveis e risco.</li><li>Claude ajuda a transformar a oportunidade em escopo inicial de modulo/MVP.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como sair da visão utópica para um recorte viável dentro dos encontros do programa.</li><li>Como mapear entrada, saída, regra, exceção, dono da validação e limite de segurança.</li><li>Como evitar a armadilha de apenas acelerar uma burocracia antiga.</li></ul></div>
+              <div class="day-col"><strong>Prática do dia</strong><ul><li>O grupo prioriza por impacto, frequência, dados disponíveis e risco.</li><li>Claude ajuda a transformar a oportunidade em escopo inicial de módulo/MVP.</li></ul></div>
               <div class="day-col"><strong>Entrega</strong><ul><li>docs/DESAFIO.md preenchido.</li><li>Objetivo do MVP em uma frase.</li><li>Critérios de sucesso e limites de Human-in-the-Loop definidos.</li></ul></div>
             </div>
-            <span class="tag">MVP: modulo priorizado</span>
+            <span class="tag">MVP: módulo priorizado</span>
           </div>
         </article>
 
@@ -494,9 +497,9 @@ claude doctor</pre></div></div></div>
           <div class="day-body">
             <h3>Dados transversais, planilhas, arquivos, bancos e Python</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como ler CSV, Excel, TXT, pastas de arquivos e consultas SQL simples.</li><li>Como dados de uma area podem disparar acao em outra sem criar novo silo.</li><li>Como usar banco somente com acesso aprovado, menor privilegio e preferencialmente leitura.</li><li>Como trabalhar com dados ficticios, mascarados, minimizados ou base SQLite de treino.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Montar uma base de teste para o modulo escolhido.</li><li>Criar pipeline simples de entrada, tratamento e saida.</li><li>Simular um gatilho transversal entre areas quando nao houver acesso real aprovado.</li><li>Validar resultado com casos reais anonimizados.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Dados de teste preparados.</li><li>Script ou rotina de transformacao.</li><li>Origem, permissao, limite de uso e regra de qualidade documentados.</li><li>Riscos de seguranca registrados.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como ler CSV, Excel, TXT, pastas de arquivos e consultas SQL simples.</li><li>Como dados de uma área podem disparar ação em outra sem criar novo silo.</li><li>Como usar banco somente com acesso aprovado, menor privilégio e preferencialmente leitura.</li><li>Como trabalhar com dados fictícios, mascarados, minimizados ou base SQLite de treino.</li></ul></div>
+              <div class="day-col"><strong>Prática do dia</strong><ul><li>Montar uma base de teste para o módulo escolhido.</li><li>Criar pipeline simples de entrada, tratamento e saída.</li><li>Simular um gatilho transversal entre áreas quando não houver acesso real aprovado.</li><li>Validar resultado com casos reais anonimizados.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Dados de teste preparados.</li><li>Script ou rotina de transformação.</li><li>Origem, permissão, limite de uso e regra de qualidade documentados.</li><li>Riscos de segurança registrados.</li></ul></div>
             </div>
             <span class="tag">MVP: pipeline de dados e acesso seguro</span>
           </div>
@@ -505,11 +508,11 @@ claude doctor</pre></div></div></div>
         <article class="day">
           <div class="day-label"><b>05</b><span>app</span></div>
           <div class="day-body">
-            <h3>Primeira solucao util: interface do modulo em Next.js</h3>
+            <h3>Primeira solução útil: interface do módulo em Next.js</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como criar uma tela simples em Next.js com ajuda do Claude.</li><li>Como separar input, processamento, resultado e decisao humana.</li><li>Como evitar caixa-preta: estado, logs, explicacao e revisao do codigo.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Criar ou adaptar uma tela para o modulo escolhido.</li><li>Exibir resultado de uma planilha, arquivo, script ou simulacao.</li><li>Revisar o codigo criado pelo Claude e ajustar o fluxo de validacao.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Primeira interface funcional.</li><li>Fluxo manual substituido por tela ou comando simples.</li><li>README atualizado com como rodar e onde o humano valida.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como criar uma tela simples em Next.js com ajuda do Claude.</li><li>Como separar input, processamento, resultado e decisão humana.</li><li>Como evitar caixa-preta: estado, logs, explicação e revisão do código.</li></ul></div>
+              <div class="day-col"><strong>Prática do dia</strong><ul><li>Criar ou adaptar uma tela para o módulo escolhido.</li><li>Exibir resultado de uma planilha, arquivo, script ou simulação.</li><li>Revisar o código criado pelo Claude e ajustar o fluxo de validação.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Primeira interface funcional.</li><li>Fluxo manual substituído por tela ou comando simples.</li><li>README atualizado com como rodar e onde o humano valida.</li></ul></div>
             </div>
             <span class="tag">MVP: primeira tela útil</span>
           </div>
@@ -518,11 +521,11 @@ claude doctor</pre></div></div></div>
         <article class="day">
           <div class="day-label"><b>06</b><span>integrar</span></div>
           <div class="day-body">
-            <h3>Sinergia entre modulos: APIs, hooks e subagents controlados</h3>
+            <h3>Sinergia entre módulos: APIs, hooks e subagents controlados</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>O que e API, token, permissao, rate limit e escopo.</li><li>Quando usar planilha, arquivo, endpoint, conector, hook ou subagent.</li><li>Como criar automacoes que conectam areas sem ampliar risco ou acesso.</li><li>Como registrar nova ferramenta quando necessario.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Conectar o MVP a uma fonte aprovada ou simular localmente.</li><li>Desenhar um subagent de revisao, documentacao ou dados com escopo limitado.</li><li>Simular hook local inofensivo, como checklist, lint ou teste, sem credenciais.</li><li>Registrar riscos, acessos, allowlist, denylist e dependencias.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Integracao controlada funcionando ou simulada.</li><li>Limites de permissao definidos.</li><li>Plano de hooks/subagents para o MVP ou justificativa de nao uso.</li><li>Plano para remover acessos se o teste parar.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>O que é API, token, permissão, rate limit e escopo.</li><li>Quando usar planilha, arquivo, endpoint, conector, hook ou subagent.</li><li>Como criar automações que conectam áreas sem ampliar risco ou acesso.</li><li>Como registrar nova ferramenta quando necessário.</li></ul></div>
+              <div class="day-col"><strong>Prática do dia</strong><ul><li>Conectar o MVP a uma fonte aprovada ou simular localmente.</li><li>Desenhar um subagent de revisão, documentação ou dados com escopo limitado.</li><li>Simular hook local inofensivo, como checklist, lint ou teste, sem credenciais.</li><li>Registrar riscos, acessos, allowlist, denylist e dependências.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Integração controlada funcionando ou simulada.</li><li>Limites de permissão definidos.</li><li>Plano de hooks/subagents para o MVP ou justificativa de não uso.</li><li>Plano para remover acessos se o teste parar.</li></ul></div>
             </div>
             <span class="tag">MVP: sinergia integrada com controle</span>
           </div>
@@ -531,11 +534,11 @@ claude doctor</pre></div></div></div>
         <article class="day">
           <div class="day-label"><b>07</b><span>seguro</span></div>
           <div class="day-body">
-            <h3>Fechar MVP, testes, documentacao e governanca</h3>
+            <h3>Fechar MVP, testes, documentação e governança</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como revisar segredos, dados, permissoes e custos.</li><li>Como revisar hooks, subagents, comandos permitidos, logs e escopo de acesso.</li><li>Como documentar uso, limites, responsavel e criterios de Human-in-the-Loop.</li><li>Como preparar uma solucao para avaliacao interna.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Revisar riscos do MVP.</li><li>Remover segredos, dados desnecessarios e acessos amplos.</li><li>Validar se automacoes estao restritas ao necessario ou devem ser removidas.</li><li>Completar documentacao minima.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>MVP revisado com checklist de seguranca.</li><li>README de uso e manutencao.</li><li>Registro de hooks/subagents, permissoes e criterios de revogacao.</li><li>Plano de continuidade ou descarte.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como revisar segredos, dados, permissões e custos.</li><li>Como revisar hooks, subagents, comandos permitidos, logs e escopo de acesso.</li><li>Como documentar uso, limites, responsável e critérios de Human-in-the-Loop.</li><li>Como preparar uma solução para avaliação interna.</li></ul></div>
+              <div class="day-col"><strong>Prática do dia</strong><ul><li>Revisar riscos do MVP.</li><li>Remover segredos, dados desnecessários e acessos amplos.</li><li>Validar se automações estão restritas ao necessário ou devem ser removidas.</li><li>Completar documentação mínima.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>MVP revisado com checklist de segurança.</li><li>README de uso e manutenção.</li><li>Registro de hooks/subagents, permissões e critérios de revogação.</li><li>Plano de continuidade ou descarte.</li></ul></div>
             </div>
             <span class="tag">MVP: beta revisado</span>
           </div>
@@ -544,13 +547,13 @@ claude doctor</pre></div></div></div>
         <article class="day">
           <div class="day-label"><b>08</b><span>demo</span></div>
           <div class="day-body">
-            <h3>Demo Day: modulo apresentado e decisao de continuidade</h3>
+            <h3>Demo Day: módulo apresentado e decisão de continuidade</h3>
             <div class="day-cols">
-              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como contar o problema, solucao, impacto e limite de seguranca.</li><li>Como demonstrar sem depender de improviso.</li><li>Como decidir se o MVP vira produto interno, backlog ou aprendizado.</li></ul></div>
-              <div class="day-col"><strong>Pratica do dia</strong><ul><li>Demo de cada participante.</li><li>Feedback tecnico, de negocio e de governanca.</li><li>Definicao de continuidade, integracao com outros modulos ou encerramento.</li></ul></div>
-              <div class="day-col"><strong>Entrega</strong><ul><li>Apresentacao do MVP.</li><li>Registro de impacto e aprendizados.</li><li>Plano de proxima versao, transferencia ou descarte seguro.</li></ul></div>
+              <div class="day-col"><strong>Vamos ensinar</strong><ul><li>Como contar o problema, solução, impacto e limite de segurança.</li><li>Como demonstrar sem depender de improviso.</li><li>Como decidir se o MVP vira produto interno, backlog ou aprendizado.</li></ul></div>
+              <div class="day-col"><strong>Prática do dia</strong><ul><li>Demo de cada participante.</li><li>Feedback técnico, de negócio e de governança.</li><li>Definição de continuidade, integração com outros módulos ou encerramento.</li></ul></div>
+              <div class="day-col"><strong>Entrega</strong><ul><li>Apresentação do MVP.</li><li>Registro de impacto e aprendizados.</li><li>Plano de próxima versão, transferência ou descarte seguro.</li></ul></div>
             </div>
-            <span class="tag">OS AI-First: modulo apresentado e avaliado</span>
+            <span class="tag">OS AI-First: módulo apresentado e avaliado</span>
           </div>
         </article>
       </div>
@@ -561,30 +564,30 @@ claude doctor</pre></div></div></div>
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="eyebrow">~/ai-first/<b>desafios</b> --por-area</div>
-          <h2>Cada pessoa traz uma dor real da area.</h2>
+          <div class="eyebrow">~/ai-first/<b>desafios</b> --por-área</div>
+          <h2>Cada pessoa traz uma dor real da área.</h2>
         </div>
-        <p>A escolha do desafio e o ponto mais importante do programa. O melhor caso nao e o mais complexo: e aquele que tem impacto claro, dados acessiveis, risco controlado e alguem disposto a validar o resultado.</p>
+        <p>A escolha do desafio é o ponto mais importante do programa. O melhor caso não é o mais complexo: é aquele que tem impacto claro, dados acessíveis, risco controlado e alguém disposto a validar o resultado.</p>
       </div>
       <div class="challenge">
         <div class="panel">
           <h3>Como vamos avaliar cada desafio</h3>
           <ul>
-            <li>Repeticao: acontece toda semana, todo mes ou consome muitas horas?</li>
-            <li>Impacto: reduz erro, economiza tempo, melhora receita, protege informacao ou acelera decisao?</li>
-            <li>Dados: os insumos existem e podem ser usados com seguranca?</li>
+            <li>Repetição: acontece toda semana, todo mês ou consome muitas horas?</li>
+            <li>Impacto: reduz erro, economiza tempo, melhora receita, protege informação ou acelera decisão?</li>
+            <li>Dados: os insumos existem e podem ser usados com segurança?</li>
             <li>Escopo: cabe no ciclo de 8 encontros principais?</li>
-            <li>Risco: envolve producao, dados pessoais, financeiro, clientes, CMS, GCP, GitHub ou credenciais?</li>
-            <li>Dono: existe alguem da area que valide se a solucao realmente funciona?</li>
+            <li>Risco: envolve produção, dados pessoais, financeiro, clientes, CMS, GCP, GitHub ou credenciais?</li>
+            <li>Dono: existe alguém da área que valide se a solução realmente funciona?</li>
           </ul>
         </div>
         <div class="fields">
-          <div class="field"><strong>Area e responsavel</strong><span>Quem traz o desafio e quem valida o resultado.</span></div>
-          <div class="field"><strong>Processo atual</strong><span>Como e feito hoje, com quais ferramentas e quanto tempo consome.</span></div>
+          <div class="field"><strong>Área e responsável</strong><span>Quem traz o desafio e quem valida o resultado.</span></div>
+          <div class="field"><strong>Processo atual</strong><span>Como é feito hoje, com quais ferramentas e quanto tempo consome.</span></div>
           <div class="field"><strong>Dor principal</strong><span>Erro, retrabalho, atraso, custo, risco ou oportunidade perdida.</span></div>
           <div class="field"><strong>Dados envolvidos</strong><span>Planilhas, arquivos, APIs, bancos, relatórios, e-mails ou sistemas.</span></div>
-          <div class="field"><strong>Resultado esperado</strong><span>O que precisa existir ao final para considerar o MVP util.</span></div>
-          <div class="field"><strong>Limites de seguranca</strong><span>O que nao pode ser exposto, automatizado ou acessado sem aprovacao.</span></div>
+          <div class="field"><strong>Resultado esperado</strong><span>O que precisa existir ao final para considerar o MVP útil.</span></div>
+          <div class="field"><strong>Limites de segurança</strong><span>O que não pode ser exposto, automatizado ou acessado sem aprovação.</span></div>
         </div>
       </div>
     </div>
@@ -594,13 +597,13 @@ claude doctor</pre></div></div></div>
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="eyebrow">~/ai-first/<b>checklist</b> --instalacao</div>
-          <h2>Checklist final da instalacao.</h2>
+          <div class="eyebrow">~/ai-first/<b>checklist</b> --instalação</div>
+          <h2>Checklist final da instalação.</h2>
         </div>
-        <p>Marque apenas o que foi pedido no passo a passo de instalacao. Esta lista fica apenas na tela, para controle individual.</p>
+        <p>Marque apenas o que foi pedido no passo a passo de instalação. Esta lista fica apenas na tela, para controle individual.</p>
       </div>
       <div class="check-wrap">
-        <div class="progress"><span>Progresso da instalacao</span><strong><span id="pct">0</span>%</strong></div>
+        <div class="progress"><span>Progresso da instalação</span><strong><span id="pct">0</span>%</strong></div>
         <div class="bar"><span id="barfill"></span></div>
         <div class="checks" id="checks">
           <div class="ci-item">Instalei VS Code e validei com code --version</div>
@@ -609,11 +612,11 @@ claude doctor</pre></div></div></div>
           <div class="ci-item">Instalei Python e validei python/pip</div>
           <div class="ci-item">Instalei Claude Code CLI e rodei claude --version</div>
           <div class="ci-item">Rodei claude doctor sem erro bloqueante</div>
-          <div class="ci-item">Instalei a extensao Claude Code no VS Code</div>
-          <div class="ci-item">Sei que as credenciais especiais serao enviadas antes da Aula 01</div>
-          <div class="ci-item">Rodei o check final completo da instalacao</div>
+          <div class="ci-item">Instalei a extensão Claude Code no VS Code</div>
+          <div class="ci-item">Sei que as credenciais especiais serão enviadas antes da Aula 01</div>
+          <div class="ci-item">Rodei o check final completo da instalação</div>
         </div>
-        <div class="done-msg" id="donemsg">Instalacao pronta para a Aula 1.</div>
+        <div class="done-msg" id="donemsg">Instalação pronta para a Aula 1.</div>
       </div>
     </div>
   </section>
@@ -625,14 +628,14 @@ claude doctor</pre></div></div></div>
           <div class="eyebrow">~/ai-first/<b>faq</b></div>
           <h2>Perguntas frequentes.</h2>
         </div>
-        <p>As duvidas abaixo cobrem os atritos mais provaveis antes do primeiro encontro.</p>
+        <p>As dúvidas abaixo cobrem os atritos mais prováveis antes do primeiro encontro.</p>
       </div>
       <div class="faq">
-        <div class="qa"><button type="button">Preciso saber programar para participar? <span>+</span></button><div class="ans"><p>Nao. O programa e feito para Citizen Developers. Voce vai orientar Claude Code em portugues, revisar resultado e aprender a logica no caminho.</p></div></div>
-        <div class="qa"><button type="button">Quanto tempo leva o pre-curso? <span>+</span></button><div class="ans"><p>Planeje cerca de 1h30 para instalacao se for a primeira vez, mais algumas horas distribuidas para cursos e leituras essenciais.</p></div></div>
-        <div class="qa"><button type="button">Travei em um comando. O que faco? <span>+</span></button><div class="ans"><p>Copie a mensagem de erro e envie no canal do programa antes da Aula 1. Resolver cedo evita perder tempo no encontro ao vivo.</p></div></div>
-        <div class="qa"><button type="button">Posso usar computador pessoal? <span>+</span></button><div class="ans"><p>Confirme com Fred Valente e com a politica da empresa. Como ha dados internos e conta corporativa, o ideal e usar equipamento e contas indicadas pela 1BMG.</p></div></div>
-        <div class="qa"><button type="button">E se meu MVP precisar de banco real ou API interna? <span>+</span></button><div class="ans"><p>O caso entra em avaliacao. Ate haver aprovacao, use base mascarada, CSV, SQLite ou simulacao local. Nunca coloque credenciais ou dados sensiveis em prompt.</p></div></div>
+        <div class="qa"><button type="button">Preciso saber programar para participar? <span>+</span></button><div class="ans"><p>Não. O programa é feito para Citizen Developers. Você vai orientar Claude Code em português, revisar resultado e aprender a lógica no caminho.</p></div></div>
+        <div class="qa"><button type="button">Quanto tempo leva o pré-curso? <span>+</span></button><div class="ans"><p>Planeje cerca de 1h30 para instalação se for a primeira vez, mais algumas horas distribuídas para cursos e leituras essenciais.</p></div></div>
+        <div class="qa"><button type="button">Travei em um comando. O que faço? <span>+</span></button><div class="ans"><p>Copie a mensagem de erro e envie no canal do programa antes da Aula 1. Resolver cedo evita perder tempo no encontro ao vivo.</p></div></div>
+        <div class="qa"><button type="button">Posso usar computador pessoal? <span>+</span></button><div class="ans"><p>Confirme com Fred Valente e com a política da empresa. Como há dados internos e conta corporativa, o ideal é usar equipamento e contas indicadas pela 1BMG.</p></div></div>
+        <div class="qa"><button type="button">E se meu MVP precisar de banco real ou API interna? <span>+</span></button><div class="ans"><p>O caso entra em avaliação. Até haver aprovação, use base mascarada, CSV, SQLite ou simulação local. Nunca coloque credenciais ou dados sensíveis em prompt.</p></div></div>
       </div>
     </div>
   </section>
@@ -641,30 +644,32 @@ claude doctor</pre></div></div></div>
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="eyebrow">~/ai-first/<b>referencias</b> --links</div>
-          <h2>Referencias oficiais do programa.</h2>
+          <div class="eyebrow">~/ai-first/<b>referências</b> --links</div>
+          <h2>Referências oficiais do programa.</h2>
         </div>
-        <p>Esses links concentram as regras e apoios que o participante precisa consultar durante o pre-curso e ao longo do ciclo executivo.</p>
+        <p>Esses links concentram as regras e apoios que o participante precisa consultar durante o pré-curso e ao longo do ciclo executivo.</p>
       </div>
       <div class="refs">
-        <a class="ref" href="https://code.claude.com/docs/en/setup" target="_blank" rel="noreferrer"><strong>Claude Code setup</strong><span>Instalacao, requisitos, autenticacao, update e alternativas por pacote.</span></a>
-        <a class="ref" href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noreferrer"><strong>Claude Code Quickstart</strong><span>Primeira sessao, login, comandos essenciais e fluxo inicial.</span></a>
-        <a class="ref" href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code" target="_blank" rel="noreferrer"><strong>Extensao VS Code</strong><span>Marketplace oficial da extensao Claude Code para VS Code.</span></a>
-        <a class="ref" href="https://anthropic.skilljar.com/" target="_blank" rel="noreferrer"><strong>Anthropic Academy</strong><span>Catalogo oficial de cursos gratuitos e certificados.</span></a>
+        <a class="ref" href="https://code.claude.com/docs/en/setup" target="_blank" rel="noreferrer"><strong>Claude Code setup</strong><span>Instalação, requisitos, autenticação, update e alternativas por pacote.</span></a>
+        <a class="ref" href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noreferrer"><strong>Claude Code Quickstart</strong><span>Primeira sessão, login, comandos essenciais e fluxo inicial.</span></a>
+        <a class="ref" href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code" target="_blank" rel="noreferrer"><strong>Extensão VS Code</strong><span>Marketplace oficial da extensão Claude Code para VS Code.</span></a>
+        <a class="ref" href="https://anthropic.skilljar.com/" target="_blank" rel="noreferrer"><strong>Anthropic Academy</strong><span>Catálogo oficial de cursos gratuitos e certificados.</span></a>
         <a class="ref" href="https://code.visualstudio.com/download" target="_blank" rel="noreferrer"><strong>VS Code</strong><span>Download oficial do editor usado no curso.</span></a>
-        <a class="ref" href="https://git-scm.com/downloads" target="_blank" rel="noreferrer"><strong>Git</strong><span>Instalador oficial para controle de versao.</span></a>
+        <a class="ref" href="https://git-scm.com/downloads" target="_blank" rel="noreferrer"><strong>Git</strong><span>Instalador oficial para controle de versão.</span></a>
+        <a class="ref" href="https://github.com/OneBigMedia-Dev/governanca-seguranca-onebigmedia" target="_blank" rel="noreferrer"><strong>GitHub OneBigMedia</strong><span>Repositório correto da governança e desta página no GitHub.</span></a>
+        <a class="ref" href="https://desktop.github.com/download/" target="_blank" rel="noreferrer"><strong>GitHub Desktop</strong><span>Aplicativo oficial para clonar, revisar e sincronizar repositórios com interface visual.</span></a>
+        <a class="ref" href="https://claude.com/download" target="_blank" rel="noreferrer"><strong>Baixar Claude</strong><span>Download oficial do app Claude para Windows, macOS e dispositivos móveis.</span></a>
         <a class="ref" href="https://nodejs.org" target="_blank" rel="noreferrer"><strong>Node.js LTS</strong><span>Runtime usado para Next.js e ferramentas web.</span></a>
-        <a class="ref" href="https://www.python.org/downloads/" target="_blank" rel="noreferrer"><strong>Python</strong><span>Download oficial para automacoes, dados e scripts.</span></a>
-        <a class="ref" href="https://onebigmedia-dev.github.io/governanca-seguranca-onebigmedia/" target="_blank" rel="noreferrer"><strong>Governanca OneBigMedia</strong><span>Fonte oficial de regras, acessos, IA, incidentes e ferramentas.</span></a>
-        <a class="ref" href="https://emotionstudios-handbook.pages.dev/" target="_blank" rel="noreferrer"><strong>Handbook Emotions</strong><span>Referencia interna para acesso, operacao e fluxo corporativo.</span></a>
-        <a class="ref" href="pre-curso-ai-first.html"><strong>Pre-curso detalhado</strong><span>Arquivo anterior mantido como referencia complementar.</span></a>
+        <a class="ref" href="https://www.python.org/downloads/" target="_blank" rel="noreferrer"><strong>Python</strong><span>Download oficial para automações, dados e scripts.</span></a>
+        <a class="ref" href="https://onebigmedia-dev.github.io/governanca-seguranca-onebigmedia/" target="_blank" rel="noreferrer"><strong>Governança OneBigMedia</strong><span>Fonte oficial de regras, acessos, IA, incidentes e ferramentas.</span></a>
+        <a class="ref" href="https://emotionstudios-handbook.pages.dev/" target="_blank" rel="noreferrer"><strong>Handbook Emotions</strong><span>Referência interna para acesso, operação e fluxo corporativo.</span></a>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">Programa AI First - One Big Media - P&D - estrutura inicial de curso baseada no PPTX do projeto, no pre-curso existente e nas referencias internas.</div>
+  <div class="wrap">Programa AI First - One Big Media - P&D - estrutura inicial de curso baseada no PPTX do projeto, no pré-curso existente e nas referências internas.</div>
 </footer>
 <script>
 (function(){
