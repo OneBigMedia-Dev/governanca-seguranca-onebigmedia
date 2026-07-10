@@ -1,12 +1,21 @@
 .env
 .env.*
 !.env.example
+!**/.env.example
+!ai-first-private/.env.example
 
 client_secret.json
+client_secret_*.json
+**/client_secret_*.json
 service-account.json
 credentials.json
 token.json
 user_oauth_token.json
+supabase_token*
+supabase_tokem*
+governanca-site/ai-first/oath_cliente_google/
+lista_de_emails_com_acesso*
+outputs/
 
 *.pem
 *.key
@@ -18,5 +27,10 @@ user_oauth_token.json
 *.bak
 
 node_modules/
+*.tsbuildinfo
+.next/
+.vercel/
+ai-first-private/.next/
+ai-first-private/.vercel/
 .DS_Store
 Thumbs.db
